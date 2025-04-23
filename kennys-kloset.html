@@ -1,76 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kenny’s Kloset</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="Kenny’s Kloset – $1 community clothing ministry at The Foundery Church, Wellsburg WV." />
+  <title>Kenny’s Kloset | Community Clothing Ministry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #D7261E;
-      color: white;
-      padding: 20px;
+    :root {
+      --brand-red:#D7261E;
+      --brand-bg:#fffdfa;
+      --brand-dark:#222;
     }
-    .container {
-      max-width: 700px;
-      margin: 0 auto;
-      background-color: #fff;
-      color: #222;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    *, *::before, *::after{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:'Quicksand',sans-serif;
+      line-height:1.6;
+      background:var(--brand-bg); color:var(--brand-dark);
     }
-    h1, h2 {
-      color: #D7261E;
-      text-align: center;
+    img{max-width:100%;display:block;}
+    a{color:inherit;text-decoration:none;}
+    header{
+      position:relative;
+      min-height:60vh;
+      display:flex;align-items:center;justify-content:center;text-align:center;
+      padding:2rem;color:#fff;
     }
-    ul {
-      padding-left: 20px;
+    header::before{
+      content:""; inset:0; position:absolute;
+      background:url('images/hero_group.jpg') center/cover no-repeat;
+      z-index:-2;
     }
-    .footer {
-      text-align: center;
-      margin-top: 30px;
-      font-style: italic;
+    header::after{
+      content:""; inset:0; position:absolute;
+      background:rgba(0,0,0,.5); z-index:-1;
+    }
+    header h1{font-size:2.2rem;margin-bottom:.5rem;font-weight:600;}
+    header p{font-size:1.1rem;}
+    .section{padding:2.5rem 1.25rem;max-width:960px;margin:auto;}
+    .section h2{color:var(--brand-red);margin-bottom:1rem;font-size:1.6rem;}
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+      gap:10px;
+    }
+    .gallery figure{
+      background:#fff;border-radius:8px;overflow:hidden;
+      box-shadow:0 2px 6px rgba(0,0,0,.1);
+    }
+    .gallery figcaption{padding:.5rem;text-align:center;font-weight:600;}
+    .help-list{list-style:none;display:flex;flex-direction:column;gap:1rem;}
+    .help-item{
+      background:#fff;padding:1rem;border-left:4px solid var(--brand-red);
+      border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.06);
+    }
+    .founder-quote{
+      background:#f8f8f8;border-left:4px solid var(--brand-red);
+      padding:1.5rem;font-style:italic;border-radius:6px;
+      box-shadow:0 2px 6px rgba(0,0,0,.06);
+    }
+    footer{
+      text-align:center;padding:3rem 1rem 4.5rem;
+      background:var(--brand-red);color:#fff;
+    }
+    footer p{margin:.5rem 0;}
+    .sticky-cta{
+      position:fixed;bottom:0;left:0;right:0;z-index:999;
+      background:var(--brand-red);color:#fff;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:.75rem 1rem;
+    }
+    .sticky-cta a{
+      background:#fff;color:var(--brand-red);
+      padding:.6rem 1rem;border-radius:50px;font-weight:600;
+    }
+    @media(min-width:600px){
+      header h1{font-size:2.8rem;}
+      .section h2{font-size:1.9rem;}
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Kenny’s Kloset – NOW OPEN!</h1>
-    <h2>A low-cost community clothing resource</h2>
-    <p><strong>Location:</strong> Inside Foundery Church<br>
-    1340 Washington Pike, Wellsburg, WV 26070<br>
-    <strong>Call:</strong> 304-737-0186</p>
-
-    <h2>What is Kenny’s Kloset?</h2>
-    <p>
-      Kenny’s Kloset offers affordable clothing to individuals and families in our community.
-      For just <strong>$3 a bag</strong>, you can fill up on quality clothes for yourself or your loved ones—
-      no questions, no judgment, just kindness.
-    </p>
-
-    <h2>What You’ll Find:</h2>
-    <ul>
-      <li>Clothing for men, women & children</li>
-      <li>Shoes & seasonal wear</li>
-      <li>Clean, organized space</li>
-      <li>Friendly volunteers happy to help</li>
-    </ul>
-
-    <h2>Open Hours:</h2>
-    <p><strong>1st and 3rd Saturday of every month</strong><br>
-    No appointment needed – come as you are!</p>
-
-    <h2>Want to Help?</h2>
-    <p>
-      We gladly accept gently used clothing donations. Drop off during open hours or call
-      to schedule a pickup. Volunteers welcome—be part of something good!
-    </p>
-
-    <div class="footer">
-      Kenny’s Kloset – Fill a bag, lift a heart. $3 per bag. Everyone’s welcome.
+  <header>
+    <div>
+      <h1>Kenny’s Kloset</h1>
+      <p>Quality clothes. Only $1. Everyone’s welcome.</p>
     </div>
+  </header>
+  <section class="section" id="story">
+    <h2>Our Purpose</h2>
+    <p>Kenny’s Kloset began as a simple dream from <strong>Barb Beatty</strong>—to make sure no one in Brooke County had to choose between clothing and other essentials. 
+      Named in loving memory of her brother Kenny, whose generous heart inspired this ministry, we offer gently used clothing for just <strong>$1 per item</strong>. 
+      Hosted inside <em>The Foundery Church</em>, every rack is a reminder that dignity should never be expensive.</p>
+  </section>
+  <section class="section" id="gallery">
+    <h2>What You’ll Find</h2>
+    <div class="gallery">
+      <figure>
+        <img src="images/gallery_men.jpg" alt="Men's shirts neatly hung" loading="lazy">
+        <figcaption>Men’s</figcaption>
+      </figure>
+      <figure>
+        <img src="images/gallery_women.jpg" alt="Women browsing dresses" loading="lazy">
+        <figcaption>Women’s</figcaption>
+      </figure>
+      <figure>
+        <img src="images/gallery_kids.jpg" alt="Kids clothing corner" loading="lazy">
+        <figcaption>Kids’</figcaption>
+      </figure>
+      <figure>
+        <img src="images/gallery_maternity.jpg" alt="Expecting mom holding maternity wear" loading="lazy">
+        <figcaption>Maternity</figcaption>
+      </figure>
+    </div>
+  </section>
+  <section class="section" id="help">
+    <h2>How You Can Help</h2>
+    <ul class="help-list">
+      <li class="help-item"><strong>Donate Clothes</strong><br>
+          Clean, gently used items of all sizes are always needed.</li>
+      <li class="help-item"><strong>Volunteer</strong><br>
+          Sort donations, greet shoppers, or help on open days.</li>
+      <li class="help-item"><strong>Spread the Word</strong><br>
+          Share our QR code or invite friends who could use affordable clothing.</li>
+    </ul>
+  </section>
+  <section class="section">
+    <div class="founder-quote">
+      “When someone leaves here smiling with a bag of clothes and a lighter heart, we know we’ve done our job.”<br>
+      — <strong>Barb Beatty, Founder</strong>
+    </div>
+  </section>
+  <footer>
+    <p><strong>Visit Us:</strong> The Foundery Church · 1340 Washington Pike · Wellsburg, WV</p>
+    <p><strong>Open:</strong> 1st & 3rd Saturday · 10 AM – 2 PM</p>
+    <p><strong>Questions?</strong> 304-737-0186</p>
+  </footer>
+  <div class="sticky-cta">
+    <span>$1 Clothing · Everyone Welcome</span>
+    <a href="https://maps.app.goo.gl/XXXXX" target="_blank" rel="noopener">Get Directions</a>
   </div>
 </body>
 </html>
