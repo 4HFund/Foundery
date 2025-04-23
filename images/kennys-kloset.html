@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="Kenny’s Kloset – affordable community clothing closet at The Foundery Church, Wellsburg WV ($2 adults / $1 kids)." />
+  <title>Kenny’s Kloset | Community Clothing Ministry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand-red:#D7261E;
+      --brand-bg:#fffdfa;
+      --brand-dark:#222;
+    }
+    *, *::before, *::after{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:'Quicksand',sans-serif;
+      line-height:1.6;
+      background:var(--brand-bg); color:var(--brand-dark);
+    }
+    img{max-width:100%;display:block;}
+    a{color:inherit;text-decoration:none;}
+    /* HERO */
+    header{
+      position:relative;
+      min-height:60vh;
+      display:flex;align-items:center;justify-content:center;text-align:center;
+      padding:2rem;color:#fff;
+    }
+    header::before{
+      content:""; inset:0; position:absolute;
+      background:url('images/hero_group.jpg') center/cover no-repeat;
+      z-index:-2;
+    }
+    header::after{
+      content:""; inset:0; position:absolute;
+      background:rgba(0,0,0,.25); z-index:-1;
+    }
+    /* Bigger title, tighter lines */
+    header h1{
+      font-size:3rem;
+      line-height:0.95;
+      margin-bottom:.5rem;
+      font-weight:800;
+      font-family:'Quicksand',sans-serif;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+    header p{font-size:1.1rem;margin-top:.5rem;}
+    /* SECTIONS */
+    .section{padding:2.5rem 1.25rem;max-width:960px;margin:auto;}
+    .section h2{color:var(--brand-red);margin-bottom:1rem;font-size:1.6rem;}
+    /* GALLERY */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+      gap:10px;
+    }
+    .gallery figure{
+      background:#fff;border-radius:8px;overflow:hidden;
+      box-shadow:0 2px 6px rgba(0,0,0,.1);
+    }
+    .gallery figcaption{padding:.5rem;text-align:center;font-weight:600;}
+    /* HELP LIST */
+    .help-list{list-style:none;display:flex;flex-direction:column;gap:1rem;}
+    .help-item{
+      background:#fff;padding:1rem;border-left:4px solid var(--brand-red);
+      border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.06);
+    }
+    /* FOUNDER QUOTE */
+    .founder-quote{
+      background:#f8f8f8;border-left:4px solid var(--brand-red);
+      padding:1.5rem;font-style:italic;border-radius:6px;
+      box-shadow:0 2px 6px rgba(0,0,0,.06);
+    }
+    /* FOOTER */
+    footer{
+      text-align:center;padding:3rem 1rem 4.5rem;
+      background:var(--brand-red);color:#fff;
+    }
+    footer p{margin:.5rem 0;}
+    /* STICKY CTA */
+    .sticky-cta{
+      position:fixed;bottom:0;left:0;right:0;z-index:999;
+      background:var(--brand-red);color:#fff;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:.75rem 1rem;
+    }
+    .sticky-cta a{
+      background:#fff;color:var(--brand-red);
+      padding:.6rem 1rem;border-radius:50px;font-weight:600;
+    }
+    @media(min-width:600px){
+      header h1{font-size:3.4rem; line-height:0.95;}
+      .section h2{font-size:1.9rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- HERO -->
+  <header>
+    <!-- increased top padding to 14rem for lower placement -->
+    <div style="padding-top:14rem; padding-bottom:1rem;">
+      <h1>Kenny’s Kloset</h1>
+      <p>Clothes &amp; Shoes — $1 per item • Cash&nbsp;Only • Everyone Welcome</p>
+    </div>
+  </header>
+  <!-- PURPOSE / STORY -->
+  <section class="section" id="story">
+    <h2>Why We’re Here</h2>
+    <p><strong>Rising costs shouldn’t steal anyone’s dignity.</strong>  After hearing a challenge to “use the gifts God gave you,”
+       <em>Barbra and Jay Beatty</em> turned their retail know‑how into a ministry. Kenny’s Kloset honours the legacy of the late
+       <strong>Kenneth “Kenny” Hart</strong>—beloved Brooke County teacher, principal and coach—by offering affordable essentials to every neighbour,
+       no strings attached.  All proceeds circle right back into helping local families (think winter coats or emergency needs), so every dollar
+       you spend sparks another act of kindness.</p>
+  </section>
+  <!-- GALLERY -->
+  <section class="section" id="gallery">
+    <h2>What You’ll Find</h2>
+    <div class="gallery">
+      <figure>
+        <img src="images/gallery_men.jpg" alt="Men's shirts neatly hung" loading="lazy">
+        <figcaption>Men’s<br><small>XS–5XL</small></figcaption>
+      </figure>
+      <figure>
+        <img src="images/gallery_women.jpg" alt="Women browsing dresses" loading="lazy">
+        <figcaption>Women’s<br><small>XS–3XL</small></figcaption>
+      </figure>
+      <figure>
+        <img src="images/gallery_kids.jpg" alt="Kids clothing corner" loading="lazy">
+        <figcaption>Kids’<br><small>Newborn &amp; up</small></figcaption>
+      </figure>
+      <figure>
+        <img src="images/gallery_maternity.jpg" alt="Expecting mom holding maternity wear" loading="lazy">
+        <figcaption>Maternity</figcaption>
+      </figure>
+    </div>
+    <p style="margin-top:1rem;">Need something special for a <strong>job interview</strong> or <strong>formal event</strong>?  Just ask—our volunteers will pull options set aside for exactly that.</p>
+  </section>
+  <!-- HOW YOU CAN HELP -->
+  <section class="section" id="help">
+    <h2>How You Can Help</h2>
+    <ul class="help-list">
+      <li class="help-item"><strong>Donate Clothes &amp; Shoes</strong><br>
+          Clean, in‑season items for all ages and sizes. (We can only accept new socks &amp; underwear.)</li>
+      <li class="help-item"><strong>Volunteer Your Time</strong><br>
+          Sorting, greeting shoppers, or loading the Blessing Box outside.</li>
+      <li class="help-item"><strong>Spread the Word</strong><br>
+          Share our posts, invite a friend, or grab a flyer with the QR code below.</li>
+    </ul>
+    <p style="margin-top:1rem;"><strong>Donation Drop‑Off:</strong> 1<sup>st</sup> &amp; 3<sup>rd</sup> <em>Saturday</em> 8 AM–12 PM</p>
+  </section>
+  <!-- MEET THE FOUNDER -->
+  <section class="section" id="founder">
+    <h2>Meet the Founder</h2>
+    <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <img src="images/barb_beatty.jpg" alt="Barb Beatty, Founder of Kenny’s Kloset" style="max-width: 240px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); margin-bottom: 1rem;">
+      <p class="founder-quote" style="max-width: 700px;">“The Lord laid it on my heart that this was something I could do. That this was a way I could give back.”<br><strong>— Barb Beatty, Founder</strong></p>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer>
+    <p><strong>Shop Hours:</strong> 1<sup>st</sup> &amp; 3<sup>rd</sup> Saturday · 8 AM–12 PM · Everything $1</p>
+    <p><strong>Find Us:</strong> The Foundery Church · 1340 Washington Pike · Wellsburg, WV</p>
+    <p><strong>Questions?</strong> <a href="https://m.facebook.com/groups/3439218003044983/" target="_blank" rel="noopener">Message us on Facebook (Kenny’s Kloset)</a></p>
+  </footer>
+  <!-- STICKY CTA -->
+  <div class="sticky-cta">
+    <span>$1 per item  |  Cash&nbsp;Only</span>
+    <a href="https://g.co/kgs/m9PNNPM" target="_blank" rel="noopener">Get Directions</a>
+  </div>
+</body>
+</html>
