@@ -37,9 +37,10 @@
       content:""; inset:0; position:absolute;
       background:rgba(0,0,0,.25); z-index:-1;
     }
-    /* Bigger title */
+    /* Bigger title, tighter lines */
     header h1{
       font-size:3rem;
+      line-height:0.95;      /* tightened line gap between Kenny’s / Kloset */
       margin-bottom:.5rem;
       font-weight:800;
       font-family:'Quicksand',sans-serif;
@@ -91,7 +92,7 @@
       padding:.6rem 1rem;border-radius:50px;font-weight:600;
     }
     @media(min-width:600px){
-      header h1{font-size:3.4rem;}
+      header h1{font-size:3.4rem; line-height:0.95;}
       .section h2{font-size:1.9rem;}
     }
   </style>
@@ -99,8 +100,8 @@
 <body>
   <!-- HERO -->
   <header>
-    <!-- text block moved up by reducing top padding from 16rem to 8rem -->
-    <div style="padding-top:8rem; padding-bottom:1rem;">
+    <!-- adjust top padding to 12rem so title sits lower than Foundery logo -->
+    <div style="padding-top:12rem; padding-bottom:1rem;">
       <h1>Kenny’s Kloset</h1>
       <p>Clothes &amp; Shoes — $1 per item • Cash Only • Everyone Welcome</p>
     </div>
