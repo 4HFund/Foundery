@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +42,14 @@
     }
     header p{font-size:1.1rem;margin-top:.5rem;}
     .section{padding:2.5rem 1.25rem;max-width:960px;margin:auto;}
-    .section h2{color:var(--brand-red);margin-bottom:1rem;font-size:1.6rem;}
+    .section h2{text-align:center;
+      color:var(--brand-red);
+      margin-bottom:1rem;
+      font-size:1.4rem;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
     .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
     .gallery figure{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.1);}
     .gallery figcaption{padding:.5rem;text-align:center;font-weight:600;}
@@ -64,7 +72,7 @@
     .sticky-cta a{background:#fff;color:var(--brand-red);padding:.6rem 1rem;border-radius:50px;font-weight:600;}
     @media(min-width:600px){
       header h1{font-size:3.4rem;}
-      .section h2{font-size:1.9rem;}
+      .section h2{text-align:center;font-size:1.9rem;}
     }
   </style>
 </head>
@@ -115,7 +123,7 @@
       <source src="This%20Is%20The%20Foundery.mp3" type="audio/mpeg">
       Sorry, your browser doesn’t support embedded audio.
     </audio>
-    <p style="font-size:.95rem;margin-top:.5rem;">A Falling Feathers Studio original, celebrating the heart behind Kenny’s Kloset &amp; The Foundery Church.</p>
+    <p style="font-size:.95rem;margin-top:.5rem;text-align:center;max-width:600px;margin-left:auto;margin-right:auto;white-space:normal;">A Falling Feathers Studio original, celebrating the heart behind Kenny’s Kloset &amp; The Foundery Church.</p>
   </section>
   <footer>
     <p><strong>Shop Hours:</strong> 1<sup>st</sup> &amp; 3<sup>rd</sup> Saturday · 8 AM–12 PM · Everything $1</p>
