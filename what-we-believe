@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What We Believe – The Foundery</title>
+  <style>
+    :root {
+      --bg: #fff;
+      --text: #111;
+      --accent: #6c63ff;
+    }
+    [data-theme="dark"] {
+      --bg: #111;
+      --text: #f5f5f5;
+      --accent: #9a8cff;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      height: 100vh;
+    }
+
+    section {
+      scroll-snap-align: start;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+      transition: background 0.4s, color 0.4s;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1, h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      max-width: 600px;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    .toggle-theme {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    .dot-nav {
+      position: fixed;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 998;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--text);
+      opacity: 0.3;
+    }
+
+    .dot.active {
+      opacity: 1;
+      transform: scale(1.3);
+    }
+
+    footer {
+      padding: 2rem;
+      font-size: 0.9rem;
+      background: var(--bg);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-theme" id="toggleTheme">🌓</button>
+
+  <div class="dot-nav" id="dotNav">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <section class="page">
+    <h1>What We Believe</h1>
+    <p>Explore the core beliefs that shape our mission, our ministry, and our message at The Foundery Church.</p>
+  </section>
+
+  <section class="page">
+    <h2>The Bible</h2>
+    <p>We believe the Bible is the inspired, infallible Word of God, guiding our faith and daily lives.</p>
+  </section>
+
+  <section class="page">
+    <h2>God in Three Persons</h2>
+    <p>We believe in one God, eternally existent in three persons: Father, Son, and Holy Spirit.</p>
+  </section>
+
+  <section class="page">
+    <h2>Jesus Christ</h2>
+    <p>We believe Jesus is the Son of God, sent to redeem humanity through His life, death, and resurrection.</p>
+  </section>
+
+  <section class="page">
+    <h2>The Holy Spirit</h2>
+    <p>The Holy Spirit empowers, guides, and comforts believers, working actively in our world today.</p>
+  </section>
+
+  <section class="page">
+    <h2>The Church</h2>
+    <p>We believe the Church is the body of Christ on earth, called to share the Gospel and serve in love.</p>
+  </section>
+
+  <section class="page">
+    <h2>Living Out the Gospel</h2>
+    <p>We are committed to living lives that reflect Jesus—lives marked by love, justice, mercy, and hope.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 The Foundery Church — <a href="#" style="color: var(--accent)">Plan Your Visit</a>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.page').forEach((section, idx) => {
+      observer.observe(section);
+    });
+
+    const toggle = document.getElementById('toggleTheme');
+    toggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    });
+
+    const dots = document.querySelectorAll('.dot');
+    const sections = document.querySelectorAll('.page');
+
+    const highlightDot = () => {
+      let index = 0;
+      sections.forEach((section, i) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight / 2) {
+          index = i;
+        }
+      });
+      dots.forEach(dot => dot.classList.remove('active'));
+      if (dots[index]) dots[index].classList.add('active');
+    };
+
+    document.addEventListener('scroll', highlightDot);
+    window.addEventListener('load', highlightDot);
+  </script>
+</body>
+</html>
