@@ -36,6 +36,15 @@
     }
 
     section.visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.visible {
       opacity: 1;
       transform: translateY(0);
     }
@@ -129,8 +138,7 @@
 <footer>
     © 2025 The Foundery Church — <a href="#top" style="color: var(--accent); text-decoration: none;">Back to Top</a>
 </footer>
-<script>
-  const sections = document.querySelectorAll('section');
+<script>const sections = document.querySelectorAll('section');
   const nav = document.getElementById('dotNav');
 
   const sectionTitles = [
@@ -187,13 +195,11 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-window.addEventListener('load', () => {
   sections.forEach(section => {
     if (section.getBoundingClientRect().top < window.innerHeight) {
       section.classList.add('visible');
     }
   });
-});
-</script>
+});</script>
 </body>
 </html>
