@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What We Believe – The Foundery</title>
+  <title>Core Beliefs – The Foundery Church</title>
   <style>
     :root {
-      --bg: #fff;
-      --text: #111;
+      --bg: #ffffff;
+      --text: #222222;
       --accent: #6c63ff;
     }
     [data-theme="dark"] {
-      --bg: #111;
+      --bg: #121212;
       --text: #f5f5f5;
-      --accent: #9a8cff;
+      --accent: #9f8cff;
     }
 
-    body, html {
+    html, body {
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
@@ -30,13 +30,13 @@
     section {
       scroll-snap-align: start;
       min-height: 100vh;
+      height: auto;
+      padding: 3rem 1.5rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
       text-align: center;
-      transition: background 0.4s, color 0.4s;
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.8s ease-out;
@@ -48,24 +48,25 @@
     }
 
     h1, h2 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 1rem;
     }
 
     p {
-      max-width: 600px;
+      max-width: 850px;
       line-height: 1.7;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
     }
 
     .toggle-theme {
       position: fixed;
       top: 1rem;
       right: 1rem;
-      font-size: 1.2rem;
       background: none;
       border: none;
       color: var(--text);
+      font-size: 1.2rem;
       cursor: pointer;
       z-index: 999;
     }
@@ -77,7 +78,7 @@
       transform: translateY(-50%);
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
       z-index: 998;
     }
 
@@ -86,7 +87,7 @@
       height: 10px;
       border-radius: 50%;
       background: var(--text);
-      opacity: 0.3;
+      opacity: 0.2;
     }
 
     .dot.active {
@@ -96,100 +97,106 @@
 
     footer {
       padding: 2rem;
-      font-size: 0.9rem;
-      background: var(--bg);
       text-align: center;
+      font-size: 0.9rem;
     }
   </style>
 </head>
-<body>
-  <button class="toggle-theme" id="toggleTheme">🌓</button>
+<body id="top">
+  <button class="toggle-theme" id="themeToggle">🌓</button>
+  <div class="dot-nav" id="dotNav"></div>
 
-  <div class="dot-nav" id="dotNav">
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-  </div>
-
-  <section class="page">
-    <h1>What We Believe</h1>
-    <p>Explore the core beliefs that shape our mission, our ministry, and our message at The Foundery Church.</p>
+  <section>
+    <h1>Core Beliefs</h1>
+    <p>The following are the core beliefs of The Foundery Church based on the foundational truths taught in the Bible. All of our teaching and ministry is rooted in and flows out of these biblical doctrines.</p>
   </section>
 
-  <section class="page">
-    <h2>The Bible</h2>
-    <p>We believe the Bible is the inspired, infallible Word of God, guiding our faith and daily lives.</p>
+  <section>
+    <h2>The Holy Trinity</h2>
+    <p>There is but one living and true God, the maker and preserver of all things. And in the unity of this Godhead there are three persons: the Father, the Son and the Holy Spirit. These three are one in eternity, deity and purpose; everlasting, of infinite power, wisdom and goodness.</p>
   </section>
 
-  <section class="page">
-    <h2>God in Three Persons</h2>
-    <p>We believe in one God, eternally existent in three persons: Father, Son, and Holy Spirit.</p>
+  <section>
+    <h2>The Son – His Incarnation</h2>
+    <p>God was Himself in Jesus Christ to reconcile people to God. Conceived by the Holy Spirit, born of the Virgin Mary, He joined together the deity of God and the humanity of humankind. Jesus of Nazareth was God in flesh, truly God and truly human. He came to save us. For us the Son of God suffered, was crucified, dead and buried. He poured out His life as blameless sacrifice for our sin and transgressions. We gratefully acknowledge that He is our Savior, the one perfect mediator between God and us.</p>
   </section>
 
-  <section class="page">
-    <h2>Jesus Christ</h2>
-    <p>We believe Jesus is the Son of God, sent to redeem humanity through His life, death, and resurrection.</p>
+  <section>
+    <h2>The Son – His Resurrection and Exaltation</h2>
+    <p>Jesus Christ is risen victorious from the dead, His resurrected body became more glorious, not hindered by ordinary human limitations. Thus He ascended into heaven. There He sits as our exalted Lord at the right hand of God the Father, where He intercedes for us until all His enemies shall be brought into complete subjection. He will return to judge all people. Every knee will bow and every tongue confess Jesus Christ is Lord, to the glory of God the Father.</p>
   </section>
 
-  <section class="page">
-    <h2>The Holy Spirit</h2>
-    <p>The Holy Spirit empowers, guides, and comforts believers, working actively in our world today.</p>
+  <section>
+    <h2>The Holy Spirit – His Person</h2>
+    <p>The Holy Spirit is the third person of the Trinity. Proceeding from the Father and the Son, He is one with them, the eternal Godhead, equal in deity, majesty and power. He is God effective in creation, in life and in the church. The Incarnation and ministry of Jesus Christ were accomplished by the Holy Spirit. He continues to reveal, interpret and glorify the Son.</p>
   </section>
 
-  <section class="page">
-    <h2>The Church</h2>
-    <p>We believe the Church is the body of Christ on earth, called to share the Gospel and serve in love.</p>
+  <section>
+    <h2>The Holy Spirit – His Work in Salvation</h2>
+    <p>The Holy Spirit is the administrator of the salvation planned by the Father and provided by the Son’s death, resurrection, and ascension. He is the effective agent in our conviction, regeneration, sanctification and glorification. He is our Lord’s ever-present self, indwelling, assuring and enabling the believer.</p>
   </section>
 
-  <section class="page">
-    <h2>Living Out the Gospel</h2>
-    <p>We are committed to living lives that reflect Jesus—lives marked by love, justice, mercy, and hope.</p>
+  <section>
+    <h2>The Holy Spirit – His Relation to the Church</h2>
+    <p>The Holy Spirit is poured out upon the church by the Father and the Son. He is the church’s life and witnessing power. He bestows the love of God and makes real the lordship of Jesus Christ in the believer so that both His gifts of words and service may achieve the common good and build and increase the church. In relation to the world He is the Spirit of truth, and His instrument is the Word of God.</p>
+  </section>
+
+  <section>
+    <h2>Authority of God's Word</h2>
+    <p>The Bible is God’s written Word, uniquely inspired by the Holy Spirit. It bears unerring witness to Jesus Christ, the living Word. As attested by the early church and subsequent councils, it is the trustworthy record of God’s revelation, completely truthful in all it affirms. It has been faithfully preserved and proves itself true in human experience.</p>
+    <p>The Scriptures have come to us through human authors who wrote, as God moved them, in the languages and literary forms of their times. God continues, by the illumination of the Holy Spirit, to speak through this Word to each generation and culture.</p>
+    <p>The Bible has authority over all human life. It teaches the truth about God, His creation, His people, His one and only Son and the destiny of humankind. It also teaches the way of salvation and the life of faith. Whatever is not found in the Bible nor can be proved by it is not to be required as an article of belief or as necessary to salvation.</p>
+  </section>
+
+  <section>
+    <h2>Free Moral Persons</h2>
+    <p>God created human beings in His own image, innocent, morally free, and responsible to choose between good and evil, right and wrong. By the sin of Adam, humans as the offspring of Adam are corrupted in their very nature so that from birth they are inclined to sin. They are unable by their own strength and work to restore themselves in right relationship with God and to merit eternal salvation.</p>
+    <p>God, the omnipotent, provides all the resources of the Trinity to make it possible for humans to respond to His grace through faith in Jesus Christ as Savior and Lord. By God’s grace and help people are enabled to do good works with a free will.</p>
+  </section>
+
+  <section>
+    <h2>New Life in Christ</h2>
+    <p>A new life and a right relationship with God are made possible through the redemptive acts of God in Jesus Christ. God, by His Spirit, acts to impart new life and put people into a relationship with Himself as they repent, and their faith responds to His grace. Justification, regeneration and adoption speak significantly to entrance into and continuance in the new life.</p>
+  </section>
+
+  <section>
+    <h2>The Return of Christ</h2>
+    <p>The return of Christ is certain and may occur at any moment, although it is not given us to know the hour. At His return He will fulfill all prophecies concerning His final triumph over all evil. The believer’s response is joyous expectation, watchfulness, readiness and diligence.</p>
   </section>
 
   <footer>
-    &copy; 2025 The Foundery Church — <a href="#" style="color: var(--accent)">Plan Your Visit</a>
+    &copy; 2025 The Foundery Church — <a href="#top" style="color: var(--accent); text-decoration: none;">Back to Top</a>
   </footer>
 
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    const sections = document.querySelectorAll('section');
+    const nav = document.getElementById('dotNav');
+    sections.forEach(() => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      nav.appendChild(dot);
+    });
+    const dots = document.querySelectorAll('.dot');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, idx) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          dots.forEach(dot => dot.classList.remove('active'));
+          dots[idx].classList.add('active');
         }
       });
     }, { threshold: 0.5 });
+    sections.forEach((section) => observer.observe(section));
 
-    document.querySelectorAll('.page').forEach((section, idx) => {
-      observer.observe(section);
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
     });
 
-    const toggle = document.getElementById('toggleTheme');
-    toggle.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme');
-      document.documentElement.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    document.querySelector('footer a').addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-
-    const dots = document.querySelectorAll('.dot');
-    const sections = document.querySelectorAll('.page');
-
-    const highlightDot = () => {
-      let index = 0;
-      sections.forEach((section, i) => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight / 2) {
-          index = i;
-        }
-      });
-      dots.forEach(dot => dot.classList.remove('active'));
-      if (dots[index]) dots[index].classList.add('active');
-    };
-
-    document.addEventListener('scroll', highlightDot);
-    window.addEventListener('load', highlightDot);
   </script>
 </body>
 </html>
