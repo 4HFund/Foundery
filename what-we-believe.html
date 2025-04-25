@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+
+<html data-theme="light" lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Core Beliefs – The Foundery Church</title>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Core Beliefs – The Foundery Church</title>
+<style>
     :root {
       --bg: #ffffff;
       --text: #222222;
@@ -103,100 +104,78 @@
   </style>
 </head>
 <body id="top">
-  <button class="toggle-theme" id="themeToggle">🌓</button>
-  <div class="dot-nav" id="dotNav"></div>
+<button class="toggle-theme" id="themeToggle">🌓</button>
+<div class="dot-nav" id="dotNav"></div>
+<section id="section-0"><h1>Core Beliefs</h1><p>Our core beliefs are rooted in the timeless truths of the Bible. Every message, ministry, and mission at The Foundery Church flows from these foundations.</p></section>
+<section id="section-1"><h2>The Holy Trinity</h2><p>We believe in one true and living God who exists in three persons: the Father, the Son, and the Holy Spirit. Together, they are united in love, power, and purpose.</p></section>
+<section id="section-2"><h2>The Son – His Incarnation</h2><p>Jesus Christ is both fully God and fully human. Born of the Virgin Mary, He lived among us to bring reconciliation between humanity and God through His perfect life and sacrificial death.</p></section>
+<section id="section-3"><h2>The Son – His Resurrection and Exaltation</h2><p>Jesus rose from the dead in victory, no longer bound by earthly limitations. He ascended to heaven, where He reigns at the right hand of the Father and intercedes for us. One day, He will return to judge the world.</p></section>
+<section id="section-4"><h2>The Holy Spirit – His Person</h2><p>The Holy Spirit is the third person of the Trinity—equal in power and glory. He was active in creation, present in Jesus’ ministry, and continues to reveal the truth of Christ today.</p></section>
+<section id="section-5"><h2>The Holy Spirit – His Work in Salvation</h2><p>The Holy Spirit helps us recognize our need for God, brings us new life, sets us apart for God’s purposes, and empowers us to grow in faith. He lives within every believer.</p></section>
+<section id="section-6"><h2>The Holy Spirit – His Relation to the Church</h2><p>The Holy Spirit fuels the Church’s mission. He unites us, empowers our witness, and equips believers with gifts to build up the body of Christ and share God's love with the world.</p></section>
+<section id="section-7"><h2>Authority of God's Word</h2><p>The Bible is God’s inspired Word. It reveals who He is, how He saves, and how we should live. Guided by the Spirit, Scripture continues to speak truth across generations and cultures.</p></section>
+<section id="section-8"><h2>Free Moral Persons</h2><p>We are created in God’s image with the freedom to choose good or evil. Though sin affects us all, God gives us the grace to respond to Him through faith in Jesus, and empowers us to live with purpose.</p></section>
+<section id="section-9"><h2>New Life in Christ</h2><p>Through Jesus, we’re offered a new beginning. When we repent and believe, God brings us into a right relationship with Him—restoring, renewing, and adopting us into His family.</p></section>
+<section id="section-10"><h2>The Return of Christ</h2><p>Jesus is coming back—and it could be any moment. His return will mark the final victory over evil. As His people, we live with hope, staying ready, joyful, and faithful.</p></section>
+<footer>
+    © 2025 The Foundery Church — <a href="#top" style="color: var(--accent); text-decoration: none;">Back to Top</a>
+</footer>
+<script>
+  const sections = document.querySelectorAll('section');
+  const nav = document.getElementById('dotNav');
 
-  <section>
-    <h1>Core Beliefs</h1>
-    <p>The following are the core beliefs of The Foundery Church based on the foundational truths taught in the Bible. All of our teaching and ministry is rooted in and flows out of these biblical doctrines.</p>
-  </section>
+  const sectionTitles = [
+    "Core Beliefs",
+    "The Trinity",
+    "Jesus: God with Us",
+    "Jesus Risen & Reigning",
+    "The Spirit's Person",
+    "The Spirit Saves",
+    "The Spirit Empowers",
+    "God's Word",
+    "Free to Choose",
+    "New Life",
+    "Christ's Return"
+  ];
 
-  <section>
-    <h2>The Holy Trinity</h2>
-    <p>There is but one living and true God, the maker and preserver of all things. And in the unity of this Godhead there are three persons: the Father, the Son and the Holy Spirit. These three are one in eternity, deity and purpose; everlasting, of infinite power, wisdom and goodness.</p>
-  </section>
+  sections.forEach((section, i) => {
+    const id = `section-${i}`;
+    section.id = id;
 
-  <section>
-    <h2>The Son – His Incarnation</h2>
-    <p>God was Himself in Jesus Christ to reconcile people to God. Conceived by the Holy Spirit, born of the Virgin Mary, He joined together the deity of God and the humanity of humankind. Jesus of Nazareth was God in flesh, truly God and truly human. He came to save us. For us the Son of God suffered, was crucified, dead and buried. He poured out His life as blameless sacrifice for our sin and transgressions. We gratefully acknowledge that He is our Savior, the one perfect mediator between God and us.</p>
-  </section>
+    const dot = document.createElement('a');
+    dot.href = `#${id}`;
+    dot.classList.add('dot');
+    dot.title = sectionTitles[i]; // Hover label
+    nav.appendChild(dot);
+  });
 
-  <section>
-    <h2>The Son – His Resurrection and Exaltation</h2>
-    <p>Jesus Christ is risen victorious from the dead, His resurrected body became more glorious, not hindered by ordinary human limitations. Thus He ascended into heaven. There He sits as our exalted Lord at the right hand of God the Father, where He intercedes for us until all His enemies shall be brought into complete subjection. He will return to judge all people. Every knee will bow and every tongue confess Jesus Christ is Lord, to the glory of God the Father.</p>
-  </section>
+  const dots = document.querySelectorAll('.dot');
 
-  <section>
-    <h2>The Holy Spirit – His Person</h2>
-    <p>The Holy Spirit is the third person of the Trinity. Proceeding from the Father and the Son, He is one with them, the eternal Godhead, equal in deity, majesty and power. He is God effective in creation, in life and in the church. The Incarnation and ministry of Jesus Christ were accomplished by the Holy Spirit. He continues to reveal, interpret and glorify the Son.</p>
-  </section>
-
-  <section>
-    <h2>The Holy Spirit – His Work in Salvation</h2>
-    <p>The Holy Spirit is the administrator of the salvation planned by the Father and provided by the Son’s death, resurrection, and ascension. He is the effective agent in our conviction, regeneration, sanctification and glorification. He is our Lord’s ever-present self, indwelling, assuring and enabling the believer.</p>
-  </section>
-
-  <section>
-    <h2>The Holy Spirit – His Relation to the Church</h2>
-    <p>The Holy Spirit is poured out upon the church by the Father and the Son. He is the church’s life and witnessing power. He bestows the love of God and makes real the lordship of Jesus Christ in the believer so that both His gifts of words and service may achieve the common good and build and increase the church. In relation to the world He is the Spirit of truth, and His instrument is the Word of God.</p>
-  </section>
-
-  <section>
-    <h2>Authority of God's Word</h2>
-    <p>The Bible is God’s written Word, uniquely inspired by the Holy Spirit. It bears unerring witness to Jesus Christ, the living Word. As attested by the early church and subsequent councils, it is the trustworthy record of God’s revelation, completely truthful in all it affirms. It has been faithfully preserved and proves itself true in human experience.</p>
-    <p>The Scriptures have come to us through human authors who wrote, as God moved them, in the languages and literary forms of their times. God continues, by the illumination of the Holy Spirit, to speak through this Word to each generation and culture.</p>
-    <p>The Bible has authority over all human life. It teaches the truth about God, His creation, His people, His one and only Son and the destiny of humankind. It also teaches the way of salvation and the life of faith. Whatever is not found in the Bible nor can be proved by it is not to be required as an article of belief or as necessary to salvation.</p>
-  </section>
-
-  <section>
-    <h2>Free Moral Persons</h2>
-    <p>God created human beings in His own image, innocent, morally free, and responsible to choose between good and evil, right and wrong. By the sin of Adam, humans as the offspring of Adam are corrupted in their very nature so that from birth they are inclined to sin. They are unable by their own strength and work to restore themselves in right relationship with God and to merit eternal salvation.</p>
-    <p>God, the omnipotent, provides all the resources of the Trinity to make it possible for humans to respond to His grace through faith in Jesus Christ as Savior and Lord. By God’s grace and help people are enabled to do good works with a free will.</p>
-  </section>
-
-  <section>
-    <h2>New Life in Christ</h2>
-    <p>A new life and a right relationship with God are made possible through the redemptive acts of God in Jesus Christ. God, by His Spirit, acts to impart new life and put people into a relationship with Himself as they repent, and their faith responds to His grace. Justification, regeneration and adoption speak significantly to entrance into and continuance in the new life.</p>
-  </section>
-
-  <section>
-    <h2>The Return of Christ</h2>
-    <p>The return of Christ is certain and may occur at any moment, although it is not given us to know the hour. At His return He will fulfill all prophecies concerning His final triumph over all evil. The believer’s response is joyous expectation, watchfulness, readiness and diligence.</p>
-  </section>
-
-  <footer>
-    &copy; 2025 The Foundery Church — <a href="#top" style="color: var(--accent); text-decoration: none;">Back to Top</a>
-  </footer>
-
-  <script>
-    const sections = document.querySelectorAll('section');
-    const nav = document.getElementById('dotNav');
-    sections.forEach(() => {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      nav.appendChild(dot);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        dots.forEach(dot => dot.classList.remove('active'));
+        const idx = [...sections].indexOf(entry.target);
+        if (dots[idx]) dots[idx].classList.add('active');
+      }
     });
-    const dots = document.querySelectorAll('.dot');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach((entry, idx) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          dots.forEach(dot => dot.classList.remove('active'));
-          dots[idx].classList.add('active');
-        }
-      });
-    }, { threshold: 0.5 });
-    sections.forEach((section) => observer.observe(section));
+  }, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.4
+  });
 
-    document.getElementById('themeToggle').addEventListener('click', () => {
-      const theme = document.documentElement.getAttribute('data-theme');
-      document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
-    });
+  sections.forEach(section => observer.observe(section));
 
-    document.querySelector('footer a').addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  </script>
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const theme = document.documentElement.getAttribute('data-theme');
+    document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
+  });
+
+  document.querySelector('footer a').addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
 </body>
 </html>
