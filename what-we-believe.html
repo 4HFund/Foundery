@@ -30,6 +30,15 @@
 
     section {
       scroll-snap-align: start;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
       min-height: 100vh;
       height: auto;
       padding: 3rem 1.5rem;
@@ -177,6 +186,14 @@
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+window.addEventListener('load', () => {
+  sections.forEach(section => {
+    if (section.getBoundingClientRect().top < window.innerHeight) {
+      section.classList.add('visible');
+    }
+  });
+});
 </script>
 </body>
 </html>
