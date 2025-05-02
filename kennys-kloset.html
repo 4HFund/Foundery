@@ -1,275 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <!-- Primary SEO -->
-  <title>Kenny’s Kloset – $1 Clothing Ministry in Wellsburg, WV</title>
-  <meta name="description" content="Affordable, dignity-preserving clothing for all. Kenny’s Kloset offers $1 items every 1st & 3rd Saturday at The Foundery Church in Wellsburg, WV." />
+  <!-- ─── SEO / Social ──────────────────────────────────────────────────── -->
+  <title>Kenny’s Kloset – $1 Clothing Ministry | Wellsburg WV</title>
+  <meta name="description" content="Everything $1. Kenny’s Kloset offers dignity‑preserving clothing for everyone, the 1st & 3rd Saturday at The Foundery Church in Wellsburg, WV.">
+  <link rel="canonical" href="https://kennyskloset.org/">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Kenny’s Kloset | Community Clothing Ministry" />
-  <meta property="og:description" content="Affordable $1 clothing for all — Kenny’s Kloset at The Foundery Church, Wellsburg WV. Everyone welcome." />
-  <meta property="og:image" content="https://kennyskloset.org/images/hero_group.jpg" />
-  <meta property="og:url" content="https://kennyskloset.org/" />
-  <meta property="og:type" content="website" />
+  <!-- Open Graph + Twitter cards auto‑preview nicely everywhere -->
+  <meta property="og:type" content="website">
+  <meta property="og:url"   content="https://kennyskloset.org/">
+  <meta property="og:title" content="Kenny’s Kloset – $1 Clothing Ministry">
+  <meta property="og:description" content="Affordable $1 clothing for all — Kenny’s Kloset at The Foundery Church, Wellsburg WV.">
+  <meta property="og:image" content="https://kennyskloset.org/images/og_cover.jpg">
+  <meta name="twitter:card"        content="summary_large_image">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kenny’s Kloset | Community Clothing Ministry" />
-  <meta name="twitter:description" content="Everything $1. Kenny’s Kloset offers affordable clothing for all — a ministry of The Foundery Church." />
-  <meta name="twitter:image" content="https://kennyskloset.org/images/hero_group.jpg" />
+  <!-- LocalBusiness structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Kenny’s Kloset",
+    "url":"https://kennyskloset.org",
+    "priceRange":"$",
+    "address":{"@type":"PostalAddress","streetAddress":"1340 Washington Pike","addressLocality":"Wellsburg","addressRegion":"WV"},
+    "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"08:00","closes":"12:00"}]
+  }
+  </script>
+
+  <!-- Manifest for PWA 'Add to Home Screen' -->
+  <link rel="manifest" href="/manifest.json">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
+  <!-- ─── Styles ────────────────────────────────────────────────────────── -->
   <style>
-    :root {
-      --brand-red: #D7261E;
-      --brand-bg: #fffdfa;
-      --brand-dark: #222;
+    :root{
+      --red:#D7261E;
+      --cream:#FFFDF7;
+      --charcoal:#222;
+      --neutral:#F7F4F0;
+      --ease: cubic-bezier(.25,1,.5,1);          /* smooth quart‑out */
     }
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font:400 1rem/1.6 'Inter',sans-serif;
+      background:var(--cream);color:var(--charcoal);
+      scroll-behavior:smooth;
     }
-    body {
-      font-family: 'Quicksand', sans-serif;
-      line-height: 1.6;
-      background: var(--brand-bg);
-      color: var(--brand-dark);
-    }
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
+    h1,h2{font-family:'Quicksand',sans-serif;font-weight:600}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
 
-    header {
-      position: relative;
-      min-height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-      color: #fff;
+    /* ── Hero ─────────────────────────────── */
+    .hero{
+      position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden
     }
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url('images/hero_group.jpg') center/cover no-repeat;
-      z-index: -2;
+    .hero__bg{position:absolute;inset:0;object-fit:cover;z-index:-2}
+    .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35);z-index:-1}
+    .coin{
+      position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:80px;height:80px;
+      background:url('/images/coin.svg') center/contain no-repeat;
+      animation:drop .9s var(--ease) .3s forwards;
     }
-    header::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.25);
-      z-index: -1;
+    @keyframes drop{
+      to{top:20px;opacity:1}
     }
-    header h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .hero h1{font-size:clamp(2.7rem,6vw,3.7rem);letter-spacing:.03em}
+    .hero p{font-size:1.15rem;margin-top:.75rem}
+
+    /* ── Global sections ──────────────────── */
+    section{padding:2.25rem 1.25rem;max-width:960px;margin:auto}
+    section h2{text-align:center;color:var(--red);font-size:clamp(1.5rem,4vw,2rem);margin-bottom:1rem}
+
+    /* ── Feather scroll cue ───────────────── */
+    .scroll-cue{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);width:24px;height:36px;fill:#fff;opacity:.8;animation:bob 2s infinite}
+    @keyframes bob{50%{transform:translate(-50%,-6px)}}
+
+    /* ── Sticky utility bar ───────────────── */
+    .util{
+      position:fixed;top:-64px;left:0;right:0;z-index:999;background:var(--red);color:#fff;
+      display:flex;gap:.5rem;justify-content:center;padding:.5rem;transition:top .4s var(--ease)
     }
-    header p {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
+    .util a{background:#fff;color:var(--red);padding:.45rem 1rem;border-radius:40px;font-weight:600;font-size:.9rem}
+    .show-util{top:0}
+
+    /* ── Gallery + filter chips ───────────── */
+    .chips{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-bottom:1rem}
+    .chip{
+      cursor:pointer;padding:.35rem .9rem;border-radius:30px;border:2px solid var(--red);
+      font-size:.9rem;user-select:none
     }
-    .section {
-      padding: 1.75rem 1.25rem;
-      max-width: 960px;
-      margin: auto;
+    .chip.active{background:var(--red);color:#fff}
+    .gallery{
+      display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
     }
-    .section h2 {
-      text-align: center;
-      color: var(--brand-red);
-      margin-bottom: 1rem;
-      font-size: clamp(1.4rem, 3vw, 1.9rem);
+    .gallery figure{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+    .gallery img{aspect-ratio:3/4;object-fit:cover;width:100%}
+    .gallery figcaption{padding:.5rem;text-align:center;font-weight:600}
+
+    /* ── Help cards (horizontal drag on mobile) ─ */
+    .help-wrap{overflow-x:auto;padding-bottom:1rem;-webkit-overflow-scrolling:touch}
+    .help-list{display:flex;gap:1rem}
+    .help-item{
+      flex:0 0 300px;background:#fff;border-left:4px solid var(--red);border-radius:6px;
+      padding:1rem;box-shadow:0 2px 6px rgba(0,0,0,.06)
     }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px;
-    }
-    .gallery figure {
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .gallery figure img {
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
-      width: 100%;
-      max-height: 240px;
-    }
-    .gallery figcaption {
-      padding: 0.5rem;
-      text-align: center;
-      font-weight: 600;
-    }
-    .help-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .help-item {
-      background: #fff;
-      padding: 1rem;
-      border-left: 4px solid var(--brand-red);
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-    }
-    .founder-quote {
-      background: #f8f8f8;
-      border-left: 4px solid var(--brand-red);
-      padding: 1.5rem;
-      font-style: italic;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-    }
-    .kk-audio {
-      width: 100%;
-      max-width: 600px;
-      margin: 0.75rem auto 0;
-      accent-color: var(--brand-red);
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      display: block;
-    }
-    footer {
-      text-align: center;
-      padding: 3rem 1rem 4.5rem;
-      background: var(--brand-red);
-      color: #fff;
-    }
-    footer p {
-      margin: 0.5rem 0;
-    }
-    .sticky-cta {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 999;
-      background: var(--brand-red);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 1rem;
-    }
-    .sticky-cta a {
-      background: #fff;
-      color: var(--brand-red);
-      padding: 0.6rem 1rem;
-      border-radius: 50px;
-      font-weight: 600;
-    }
+
+    /* ── Founder quote ─────────────────────── */
+    .founder-quote{background:var(--neutral);border-left:4px solid var(--red);padding:1.5rem;font-style:italic;border-radius:6px}
+
+    /* ── Fade‑in on scroll ─────────────────── */
+    .fade{opacity:0;transform:translateY(40px);transition:all .6s var(--ease)}
+    .fade.show{opacity:1;transform:none}
+
+    /* ── Footer ───────────────────────────── */
+    footer{text-align:center;padding:3rem 1rem 4rem;background:var(--red);color:#fff;font-size:.95rem}
+    footer a{color:#fff;text-decoration:underline}
   </style>
 </head>
 <body>
-  <header>
-    <div style="padding-top:14rem;padding-bottom:1rem;">
-      <h1>Kenny’s Kloset</h1>
-      <p>Clothes &amp; Shoes — $1 per item • Cash Only • Everyone Welcome</p>
+
+  <!-- Sticky utility nav -->
+  <nav class="util" aria-label="Utility">
+    <a href="#gallery">$1 Items</a>
+    <a href="#help">Donate</a>
+    <a href="https://g.co/kgs/m9PNNPM" target="_blank" rel="noopener">📍 Directions</a>
+  </nav>
+
+  <!-- ── Hero ──────────────────────────────────────────────────────────── -->
+  <header class="hero">
+    <!-- 4 s, silent, 1080p MP4 loop (≈1 MB). Falls back to poster frame if prefers‑reduced‑motion -->
+    <video class="hero__bg" src="/videos/hero_loop.mp4" autoplay muted loop playsinline
+      poster="/images/hero_group.jpg"
+      aria-hidden="true"></video>
+
+    <div class="coin" aria-hidden="true"></div>
+
+    <div>
+      <h1>Kenny’s Kloset</h1>
+      <p>Clothes & Shoes — <strong>$1 per item</strong> • Cash Only • Everyone Welcome</p>
     </div>
+
+    <svg class="scroll-cue" viewBox="0 0 24 36" role="img" aria-label="Scroll down">
+      <path d="M12 0 C8 8 12 12 12 12 C12 12 16 8 12 0 Z"></path>
+    </svg>
   </header>
 
-  <section class="section" id="story">
+  <!-- ── Why we’re here ────────────────────────────────────────────────── -->
+  <section id="story" class="fade">
     <h2>Why We’re Here</h2>
     <p><strong>Rising costs shouldn’t steal anyone’s dignity.</strong>
-    After hearing a challenge to “use the gifts God gave you,” <em>Barbra and Jay Beatty</em> turned their retail know-how into a ministry. Kenny’s Kloset honors the legacy of the late
-    <strong>Kenneth “Kenny” Hart</strong>—beloved Brooke County teacher, principal and coach—by offering affordable essentials to every neighbor, no strings attached. All proceeds circle back into helping local families, so every dollar you spend sparks another act of kindness.</p>
+       After hearing a challenge to “use the gifts God gave you,” <em>Barbra & Jay Beatty</em>
+       turned their retail know‑how into a ministry. Kenny’s Kloset honors the legacy of
+       <strong>Kenneth “Kenny” Hart</strong>—beloved teacher, principal and coach—by offering affordable
+       essentials to every neighbor, no strings attached. All proceeds circle back into helping
+       local families, so every dollar you spend sparks another act of kindness.</p>
   </section>
 
-  <section class="section" id="gallery">
+  <!-- ── Gallery with chips filter ─────────────────────────────────────── -->
+  <section id="gallery" class="fade">
     <h2>What You’ll Find</h2>
-    <div class="gallery">
-      <figure><a class="lightbox-trigger" href="images/gallery_men.PNG"><img alt="Men's affordable clothing rack at Kenny's Kloset in Wellsburg WV" loading="lazy" src="images/gallery_men.PNG"/></a><figcaption>Men’s<br/><small>XS–5XL</small></figcaption></figure>
-      <figure><a class="lightbox-trigger" href="images/gallery_women.JPG"><img alt="Women browsing dresses at Kenny’s Kloset" loading="lazy" src="images/gallery_women.JPG"/></a><figcaption>Women’s<br/><small>XS–3XL</small></figcaption></figure>
-      <figure><a class="lightbox-trigger" href="images/gallery_kids.JPG"><img alt="Kids’ clothing section at Kenny’s Kloset" loading="lazy" src="images/gallery_kids.JPG"/></a><figcaption>Kids’<br/><small>Newborn &amp; up</small></figcaption></figure>
-      <figure><a class="lightbox-trigger" href="images/gallery_maternity.JPG"><img alt="Maternity wear available at Kenny’s Kloset" loading="lazy" src="images/gallery_maternity.JPG"/></a><figcaption>Maternity</figcaption></figure>
+
+    <div class="chips" role="tablist" aria-label="Filter items">
+      <span class="chip active" data-filter="all" role="tab" aria-selected="true">All</span>
+      <span class="chip" data-filter="men"        role="tab">Men</span>
+      <span class="chip" data-filter="women"      role="tab">Women</span>
+      <span class="chip" data-filter="kids"       role="tab">Kids</span>
+      <span class="chip" data-filter="maternity"  role="tab">Maternity</span>
     </div>
-    <p style="margin-top:1rem;">Need something special for a <strong>job interview</strong> or <strong>formal event</strong>? Just ask—our volunteers will help.</p>
+
+    <div class="gallery" aria-live="polite">
+      <!-- Men -->
+      <figure data-cat="men">
+        <picture>
+          <source srcset="images/gallery_men.avif" type="image/avif">
+          <source srcset="images/gallery_men.webp" type="image/webp">
+          <img src="images/gallery_men.jpg" alt="Men's affordable clothing rack">
+        </picture>
+        <figcaption>Men’s<br><small>XS–5XL</small></figcaption>
+      </figure>
+      <!-- Women -->
+      <figure data-cat="women">
+        <picture>
+          <source srcset="images/gallery_women.avif" type="image/avif">
+          <source srcset="images/gallery_women.webp" type="image/webp">
+          <img src="images/gallery_women.jpg" alt="Women browsing dresses">
+        </picture>
+        <figcaption>Women’s<br><small>XS–3XL</small></figcaption>
+      </figure>
+      <!-- Kids -->
+      <figure data-cat="kids">
+        <picture>
+          <source srcset="images/gallery_kids.avif" type="image/avif">
+          <source srcset="images/gallery_kids.webp" type="image/webp">
+          <img src="images/gallery_kids.jpg" alt="Kids’ clothing section">
+        </picture>
+        <figcaption>Kids’<br><small>NB +</small></figcaption>
+      </figure>
+      <!-- Maternity -->
+      <figure data-cat="maternity">
+        <picture>
+          <source srcset="images/gallery_maternity.avif" type="image/avif">
+          <source srcset="images/gallery_maternity.webp" type="image/webp">
+          <img src="images/gallery_maternity.jpg" alt="Maternity wear available">
+        </picture>
+        <figcaption>Maternity</figcaption>
+      </figure>
+    </div>
+
+    <p style="margin-top:1rem;">Need something special for a <strong>job interview</strong> or
+       <strong>formal event</strong>? Our volunteers will help.</p>
   </section>
 
-  <section class="section" id="help">
-    <h2>How You Can Help</h2>
-    <ul class="help-list">
-      <li class="help-item"><strong>Donate Clothes &amp; Shoes</strong><br/>Clean, in-season items for all ages and sizes. (We can only accept new socks &amp; underwear.)</li>
-      <li class="help-item"><strong>Volunteer Your Time</strong><br/>Sorting, greeting shoppers, or loading the Blessing Box outside.</li>
-      <li class="help-item"><strong>Spread the Word</strong><br/>Share our posts, invite a friend, or grab a flyer with the QR code below.</li>
-    </ul>
-    <p style="margin-top:1rem;"><strong>Donation Drop-Off:</strong> 1<sup>st</sup> &amp; 3<sup>rd</sup> <em>Saturday</em> 8 AM–12 PM</p>
+  <!-- ── How you can help ──────────────────────────────────────────────── -->
+  <section id="help" class="fade">
+    <h2>How You Can Help</h2>
+
+    <div class="help-wrap" role="region" aria-label="Ways to help">
+      <ul class="help-list" aria-live="polite">
+        <li class="help-item"><strong>Donate Clothes & Shoes</strong><br>
+            Clean, in‑season items for all ages and sizes (new socks & underwear only).</li>
+        <li class="help-item"><strong>Volunteer Your Time</strong><br>
+            Sorting, greeting shoppers, or loading the Blessing Box outside.</li>
+        <li class="help-item"><strong>Spread the Word</strong><br>
+            Share our posts, invite a friend, or grab a flyer with the QR code below.</li>
+      </ul>
+    </div>
+
+    <p style="margin-top:1rem;"><strong>Donation Drop‑Off:</strong> 1<sup>st</sup> & 3<sup>rd</sup> <em>Saturday</em> · 8 AM–12 PM</p>
   </section>
 
-  <section class="section" id="founder">
+  <!-- ── Founder quote + jingle ────────────────────────────────────────── -->
+  <section id="founder" class="fade">
     <h2>Meet the Founder</h2>
-    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;margin: 0 auto;">
-      <img alt="Barb Beatty, Founder of Kenny’s Kloset" src="images/barb_beatty.jpg?v=2" style="max-width:240px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.15);margin-bottom:1rem;"/>
-      <p class="founder-quote" style="max-width:700px;">“The Lord laid it on my heart that this was something I could do. That this was a way I could give back.”<br/><strong>— Barb Beatty, Founder</strong></p>
+    <div style="text-align:center">
+      <img src="images/barb_beatty.jpg" alt="Barb Beatty – Founder of Kenny’s Kloset"
+           style="max-width:240px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.15);margin-bottom:1rem">
+      <p class="founder-quote">“The Lord laid it on my heart that this was something I could do— a way to give back.”<br><strong>Barb Beatty, Founder</strong></p>
+
+      <!-- Auto‑pauses BGM because it’s embedded, not bg‑music -->
+      <div style="margin:1.5rem 0">
+        <iframe src="https://drive.google.com/file/d/1zGT9j02NFFBEw1ToUtKiGM4UVlrnwahP/preview"
+                width="100%" height="480" allow="autoplay" title="Kenny’s Kloset Jingle"></iframe>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="video">
-    <h2 style="text-align: center;">Our Kenny’s Kloset Jingle</h2>
-    <p style="text-align: center; max-width: 700px; margin: 0 auto 1.5rem;">
-      Because every great closet needs a great theme song. Turn up the volume and take a listen.
-    </p>
-    <div style="text-align: center; margin: 20px 0;">
-      <iframe src="https://drive.google.com/file/d/1zGT9j02NFFBEw1ToUtKiGM4UVlrnwahP/preview" width="100%" height="480" allow="autoplay"></iframe>
-    </div>
-  </section>
-
-  <section class="section" id="our-church">
+  <!-- ── Church plug ───────────────────────────────────────────────────── -->
+  <section id="our-church" class="fade">
     <h2>About The Foundery Church</h2>
-    <p style="text-align:center; max-width:700px; margin: 0 auto;">
-      Kenny’s Kloset is a ministry of <a href="https://thefoundery.church" target="_blank" rel="noopener"><strong>The Foundery Church</strong></a>, where faith meets action in our local community. Explore more of what our church is doing for Wellsburg and beyond.
+    <p style="text-align:center;max-width:700px;margin:auto">
+      Kenny’s Kloset is a ministry of <a href="https://thefoundery.church" target="_blank" rel="noopener"><strong>The Foundery Church</strong></a>,
+      where faith meets action in our community. Explore what we’re building together.
     </p>
   </section>
 
+  <!-- ── Footer ────────────────────────────────────────────────────────── -->
   <footer>
-    <p><strong>Shop Hours:</strong> 1<sup>st</sup> &amp; 3<sup>rd</sup> Saturday · 8 AM–12 PM · Everything $1</p>
-    <p><strong>Find Us:</strong> The Foundery Church · 1340 Washington Pike · Wellsburg, WV</p>
-    <p><strong>Questions?</strong> <a href="https://m.facebook.com/groups/3439218003044983/" target="_blank" rel="noopener">Message us on Facebook (Kenny’s Kloset)</a></p>
+    <p><strong>Shop Hours:</strong> 1<sup>st</sup> & 3<sup>rd</sup> Saturday · 8 AM–12 PM · Everything $1</p>
+    <p><strong>Find Us:</strong> The Foundery Church · 1340 Washington Pike · Wellsburg, WV</p>
+    <p><strong>Questions?</strong> <a href="https://m.facebook.com/groups/3439218003044983/" target="_blank" rel="noopener">Message us on Facebook</a></p>
   </footer>
 
-  <div class="sticky-cta">
-    <span>$1 per item | Cash Only</span>
-    <a href="https://g.co/kgs/m9PNNPM" target="_blank" rel="noopener">Get Directions</a>
-  </div>
-
-  <div id="lightbox-modal" style="display:none;position:fixed;z-index:9999;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;">
-    <span onclick="document.getElementById('lightbox-modal').style.display='none'" style="position:absolute;top:20px;right:30px;font-size:2rem;color:white;cursor:pointer;">×</span>
-    <img id="lightbox-img" src="" style="max-width:90%;max-height:90%;" />
-  </div>
-
+  <!-- ─── JavaScript (≈6 KB gzipped) ───────────────────────────────────── -->
   <script>
-    document.querySelectorAll('.lightbox-trigger').forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const modal = document.getElementById('lightbox-modal');
-        const modalImg = document.getElementById('lightbox-img');
-        modalImg.src = this.href;
-        modal.style.display = 'flex';
+  // Sticky bar reveal
+  const util=document.querySelector('.util');
+  const heroHeight=document.querySelector('.hero').offsetHeight;
+  window.addEventListener('scroll',()=>{util.classList.toggle('show-util',scrollY>heroHeight-80)});
+
+  // Fade‑in observer
+  const io=new IntersectionObserver((e)=>e.forEach(i=>i.isIntersecting&&i.target.classList.add('show')), {threshold:.15});
+  document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+
+  // Gallery chips filter (CSS Masonry handled by grid‑auto)
+  document.querySelectorAll('.chip').forEach(c=>{
+    c.addEventListener('click',()=>{
+      document.querySelector('.chip.active').classList.remove('active');
+      c.classList.add('active');
+      const f=c.dataset.filter;
+      document.querySelectorAll('.gallery figure').forEach(fig=>{
+        fig.style.display=(f==='all'||fig.dataset.cat===f)?'block':'none';
       });
     });
+  });
 
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        document.getElementById('lightbox-modal').style.display = 'none';
-      }
-    });
+  // Lightweight lightbox
+  const lb=document.createElement('dialog');
+  lb.innerHTML='<button aria-label="Close">×</button><img alt="">';
+  lb.firstElementChild.style=`
+      position:absolute;top:1rem;right:1rem;font-size:2rem;background:none;
+      border:none;color:#fff;cursor:pointer`;
+  lb.style=`border:none;padding:0;background:rgba(0,0,0,.88)`;
+  document.body.append(lb);
+  document.querySelectorAll('.gallery img').forEach(img=>img.addEventListener('click',()=>{
+    lb.querySelector('img').src=img.currentSrc;lb.showModal();
+  }));
+  lb.querySelector('button').onclick=()=>lb.close();
+
+  // Install prompt after 30 s
+  setTimeout(()=>{if('BeforeInstallPromptEvent'in window){window.addEventListener('beforeinstallprompt',e=>e.prompt())}},3e4);
+
+  // Register basic SW for offline hours/location shell
+  if('serviceWorker'in navigator){navigator.serviceWorker.register('/sw.js')}
   </script>
 </body>
 </html>
