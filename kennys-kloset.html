@@ -49,14 +49,11 @@
       color: var(--charcoal);
       scroll-behavior: smooth;
     }
-    h1, h2 {
-      font-family: 'Quicksand', sans-serif;
-      font-weight: 600;
-    }
+    h1, h2 { font-family: 'Quicksand', sans-serif; font-weight: 600; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
-    /* Hero */
+    /* Hero – static image background */
     .hero {
       position: relative;
       min-height: 70vh;
@@ -65,29 +62,7 @@
       justify-content: center;
       text-align: center;
       color: #fff;
-      overflow: hidden;
-    }
-    .hero__bg {
-      position: absolute; inset: 0;
-      object-fit: cover;
-      z-index: -2;
-    }
-    .hero::after {
-      content: "";
-      position: absolute; inset: 0;
-      background: rgba(0,0,0, .35);
-      z-index: -1;
-    }
-    .coin {
-      position: absolute;
-      top: -80px; left: 50%;
-      transform: translateX(-50%);
-      width: 80px; height: 80px;
-      background: url('/images/coin.svg') center/contain no-repeat;
-      animation: drop .9s var(--ease) .3s forwards;
-    }
-    @keyframes drop {
-      to { top: 20px; opacity: 1; }
+      background: url('/images/hero_group.jpg') center/cover no-repeat;
     }
     .hero h1 {
       font-size: clamp(2.7rem, 6vw, 3.7rem);
@@ -98,153 +73,109 @@
       margin-top: .75rem;
     }
 
-    /* Scroll cue */
-    .scroll-cue {
-      position: absolute;
-      bottom: 1rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 24px; height: 36px;
-      fill: #fff;
-      opacity: .8;
-      animation: bob 2s infinite;
-    }
-    @keyframes bob {
-      50% { transform: translate(-50%, -6px); }
-    }
-
     /* Utility bar */
     .util {
-      position: fixed;
-      top: -64px; left: 0; right: 0;
-      z-index: 999;
-      background: var(--red);
-      color: #fff;
-      display: flex;
-      gap: .5rem;
-      justify-content: center;
-      padding: .5rem;
-      transition: top .4s var(--ease);
+      position: fixed; top: -64px; left: 0; right: 0;
+      z-index: 999; background: var(--red); color: #fff;
+      display: flex; gap: .5rem; justify-content: center;
+      padding: .5rem; transition: top .4s var(--ease);
     }
     .util a {
-      background: #fff;
-      color: var(--red);
-      padding: .45rem 1rem;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: .9rem;
+      background: #fff; color: var(--red);
+      padding: .45rem 1rem; border-radius: 40px;
+      font-weight: 600; font-size: .9rem;
     }
     .show-util { top: 0; }
 
     /* Sections */
     section {
-      padding: 2.25rem 1.25rem;
-      max-width: 960px;
-      margin: auto;
+      padding: 2.25rem 1.25rem; max-width: 960px; margin: auto;
     }
     section h2 {
-      text-align: center;
-      color: var(--red);
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      margin-bottom: 1rem;
+      text-align: center; color: var(--red);
+      font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 1rem;
     }
 
     /* Gallery & chips */
     .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .5rem;
-      justify-content: center;
-      margin-bottom: 1rem;
+      display: flex; flex-wrap: wrap; gap: .5rem;
+      justify-content: center; margin-bottom: 1rem;
     }
     .chip {
-      cursor: pointer;
-      padding: .35rem .9rem;
-      border-radius: 30px;
-      border: 2px solid var(--red);
-      font-size: .9rem;
-      user-select: none;
+      cursor: pointer; padding: .35rem .9rem;
+      border: 2px solid var(--red); border-radius: 30px;
+      font-size: .9rem; user-select: none;
     }
     .chip.active {
-      background: var(--red);
-      color: #fff;
+      background: var(--red); color: #fff;
     }
     .gallery {
-      display: grid;
-      gap: 10px;
+      display: grid; gap: 10px;
       grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
     }
     .gallery figure {
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,.08);
+      background: #fff; border-radius: 8px;
+      overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,.08);
     }
     .gallery img {
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      width: 100%;
+      aspect-ratio: 3/4; object-fit: cover; width: 100%;
     }
     .gallery figcaption {
-      padding: .5rem;
-      text-align: center;
-      font-weight: 600;
+      padding: .5rem; text-align: center; font-weight: 600;
     }
 
-    /* Help cards & bullet fix */
+    /* Help & dropoff */
     .help-wrap {
-      overflow-x: auto;
-      padding-bottom: 1rem;
+      overflow-x: auto; padding-bottom: 1rem;
       -webkit-overflow-scrolling: touch;
     }
     .help-list {
-      display: flex;
-      gap: 1rem;
-      list-style: none;
+      display: flex; gap: 1rem; list-style: none;
     }
-    .help-list li::marker {
-      content: '';
-    }
+    .help-list li::marker { content: ''; }
     .help-item {
-      flex: 0 0 300px;
-      background: #fff;
+      flex: 0 0 300px; background: #fff;
       border-left: 4px solid var(--red);
-      border-radius: 6px;
-      padding: 1rem;
+      border-radius: 6px; padding: 1rem;
       box-shadow: 0 2px 6px rgba(0,0,0,.06);
     }
+    .dropoff {
+      text-align: center; font-size: 1rem;
+      margin-top: 1rem; line-height: 1.4;
+    }
+    .dropoff span {
+      display: inline-block; margin: 0 .25rem;
+    }
 
-    /* Founder quote */
+    /* Founder centering */
+    #founder .founder-container {
+      text-align: center;
+    }
+    #founder .founder-container img {
+      display: block; margin: 0 auto 1rem;
+    }
     .founder-quote {
       background: var(--neutral);
       border-left: 4px solid var(--red);
-      padding: 1.5rem;
-      font-style: italic;
+      padding: 1.5rem; font-style: italic;
       border-radius: 6px;
     }
 
     /* Fade-in */
     .fade {
-      opacity: 0;
-      transform: translateY(40px);
+      opacity: 0; transform: translateY(40px);
       transition: all .6s var(--ease);
     }
-    .fade.show {
-      opacity: 1;
-      transform: none;
-    }
+    .fade.show { opacity: 1; transform: none; }
 
     /* Footer */
     footer {
-      text-align: center;
-      padding: 3rem 1rem 4rem;
-      background: var(--red);
-      color: #fff;
+      text-align: center; padding: 3rem 1rem 4rem;
+      background: var(--red); color: #fff;
       font-size: .95rem;
     }
     footer a {
-      color: #fff;
-      text-decoration: underline;
+      color: #fff; text-decoration: underline;
     }
   </style>
 </head>
@@ -257,25 +188,16 @@
   </nav>
 
   <header class="hero">
-    <video class="hero__bg"
-           src="/videos/hero_loop.mp4"
-           autoplay muted loop playsinline
-           poster="/images/hero_group.jpg"
-           aria-hidden="true"></video>
-    <div class="coin" aria-hidden="true"></div>
     <div>
       <h1>Kenny’s Kloset</h1>
-      <p>Clothes & Shoes — <strong>$1 per item</strong> • Cash Only • Everyone Welcome</p>
+      <p>Clothes &amp; Shoes — <strong>$1 per item</strong> • Cash Only • Everyone Welcome</p>
     </div>
-    <svg class="scroll-cue" viewBox="0 0 24 36" aria-hidden="true">
-      <path d="M12 0 C8 8 12 12 12 12 C12 12 16 8 12 0 Z"></path>
-    </svg>
   </header>
 
   <section id="story" class="fade">
     <h2>Why We’re Here</h2>
     <p><strong>Rising costs shouldn’t steal anyone’s dignity.</strong> After hearing a challenge to “use the gifts God gave you,”
-      <em>Barbra & Jay Beatty</em> turned their retail know‑how into a ministry. Kenny’s Kloset honors the legacy of
+      <em>Barbra &amp; Jay Beatty</em> turned their retail know‑how into a ministry. Kenny’s Kloset honors the legacy of
       <strong>Kenneth “Kenny” Hart</strong>—beloved teacher, principal and coach—by offering affordable essentials to
       every neighbor, no strings attached. All proceeds circle back into helping local families, so every dollar you spend
       sparks another act of kindness.</p>
@@ -317,24 +239,25 @@
     <h2>How You Can Help</h2>
     <div class="help-wrap">
       <ul class="help-list">
-        <li class="help-item"><strong>Donate Clothes & Shoes</strong><br>
-            Clean, in‑season items for all ages and sizes (new socks & underwear only).</li>
+        <li class="help-item"><strong>Donate Clothes &amp; Shoes</strong><br>
+            Clean, in‑season items for all ages and sizes (new socks &amp; underwear only).</li>
         <li class="help-item"><strong>Volunteer Your Time</strong><br>
             Sorting, greeting shoppers, or loading the Blessing Box outside.</li>
         <li class="help-item"><strong>Spread the Word</strong><br>
             Share our posts, invite a friend, or grab a flyer with the QR code below.</li>
       </ul>
     </div>
-    <p style="margin-top:1rem; text-align:center">
-      <strong>Donation Drop‑Off:</strong> 1<sup>st</sup> & 3<sup>rd</sup> Saturday · 8 AM–12 PM
+    <p class="dropoff">
+      <strong>Donation Drop‑Off:</strong>
+      <span>1<sup>st</sup> &amp; 3<sup>rd</sup> Saturday</span>
+      <span>8 AM–12 PM</span>
     </p>
   </section>
 
   <section id="founder" class="fade">
     <h2>Meet the Founder</h2>
-    <div style="text-align:center">
-      <img src="images/barb_beatty.jpg" alt="Barb Beatty – Founder of Kenny’s Kloset"
-           style="max-width:240px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,.15); margin-bottom:1rem">
+    <div class="founder-container">
+      <img src="images/barb_beatty.jpg" alt="Barb Beatty – Founder of Kenny’s Kloset">
       <p class="founder-quote">
         “The Lord laid it on my heart that this was something I could do—a way to give back.”<br>
         <strong>Barb Beatty, Founder</strong>
@@ -356,7 +279,7 @@
   </section>
 
   <footer>
-    <p><strong>Shop Hours:</strong> 1<sup>st</sup> & 3<sup>rd</sup> Saturday · 8 AM–12 PM · Everything $1</p>
+    <p><strong>Shop Hours:</strong> 1<sup>st</sup> &amp; 3<sup>rd</sup> Saturday · 8 AM–12 PM · Everything $1</p>
     <p><strong>Find Us:</strong> The Foundery Church · 1340 Washington Pike · Wellsburg, WV</p>
     <p><strong>Questions?</strong>
       <a href="https://m.facebook.com/groups/3439218003044983/" target="_blank" rel="noopener">
