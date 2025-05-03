@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <!-- SEO / Social -->
   <title>Kenny’s Kloset – $1 Clothing Ministry | Wellsburg WV</title>
   <meta name="description" content="Everything $1. Kenny’s Kloset offers dignity‑preserving clothing for everyone, the 1st & 3rd Saturday at The Foundery Church in Wellsburg, WV.">
   <link rel="canonical" href="https://kennyskloset.org/">
@@ -15,23 +14,7 @@
   <meta property="og:image" content="https://kennyskloset.org/images/og_cover.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"Kenny’s Kloset",
-    "url":"https://kennyskloset.org",
-    "priceRange":"$",
-    "address":{"@type":"PostalAddress","streetAddress":"1340 Washington Pike","addressLocality":"Wellsburg","addressRegion":"WV"},
-    "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"08:00","closes":"12:00"}]
-  }
-  </script>
-
-  <!-- PWA Manifest -->
   <link rel="manifest" href="/manifest.json">
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
@@ -53,16 +36,19 @@
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
-    /* Hero – static image background */
     .hero {
       position: relative;
       min-height: 70vh;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
       text-align: center;
       color: #fff;
       background: url('/images/hero_group.jpg') center/cover no-repeat;
+      padding-bottom: 3rem;
+    }
+    .hero h1, .hero p {
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
     .hero h1 {
       font-size: clamp(2.7rem, 6vw, 3.7rem);
@@ -73,7 +59,6 @@
       margin-top: .75rem;
     }
 
-    /* Utility bar */
     .util {
       position: fixed; top: -64px; left: 0; right: 0;
       z-index: 999; background: var(--red); color: #fff;
@@ -87,7 +72,6 @@
     }
     .show-util { top: 0; }
 
-    /* Sections */
     section {
       padding: 2.25rem 1.25rem; max-width: 960px; margin: auto;
     }
@@ -96,7 +80,6 @@
       font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 1rem;
     }
 
-    /* Gallery & chips */
     .chips {
       display: flex; flex-wrap: wrap; gap: .5rem;
       justify-content: center; margin-bottom: 1rem;
@@ -124,7 +107,6 @@
       padding: .5rem; text-align: center; font-weight: 600;
     }
 
-    /* Help & dropoff */
     .help-wrap {
       overflow-x: auto; padding-bottom: 1rem;
       -webkit-overflow-scrolling: touch;
@@ -132,7 +114,6 @@
     .help-list {
       display: flex; gap: 1rem; list-style: none;
     }
-    .help-list li::marker { content: ''; }
     .help-item {
       flex: 0 0 300px; background: #fff;
       border-left: 4px solid var(--red);
@@ -143,11 +124,7 @@
       text-align: center; font-size: 1rem;
       margin-top: 1rem; line-height: 1.4;
     }
-    .dropoff span {
-      display: inline-block; margin: 0 .25rem;
-    }
 
-    /* Founder centering */
     #founder .founder-container {
       text-align: center;
     }
@@ -161,14 +138,12 @@
       border-radius: 6px;
     }
 
-    /* Fade-in */
     .fade {
       opacity: 0; transform: translateY(40px);
       transition: all .6s var(--ease);
     }
     .fade.show { opacity: 1; transform: none; }
 
-    /* Footer */
     footer {
       text-align: center; padding: 3rem 1rem 4rem;
       background: var(--red); color: #fff;
@@ -205,14 +180,14 @@
 
   <section id="gallery" class="fade">
     <h2>What You’ll Find</h2>
-    <div class="chips" role="tablist">
-      <span class="chip active" data-filter="all" role="tab" aria-selected="true">All</span>
-      <span class="chip" data-filter="men" role="tab">Men</span>
-      <span class="chip" data-filter="women" role="tab">Women</span>
-      <span class="chip" data-filter="kids" role="tab">Kids</span>
-      <span class="chip" data-filter="maternity" role="tab">Maternity</span>
+    <div class="chips">
+      <span class="chip active" data-filter="all">All</span>
+      <span class="chip" data-filter="men">Men</span>
+      <span class="chip" data-filter="women">Women</span>
+      <span class="chip" data-filter="kids">Kids</span>
+      <span class="chip" data-filter="maternity">Maternity</span>
     </div>
-    <div class="gallery" aria-live="polite">
+    <div class="gallery">
       <figure data-cat="men">
         <img src="images/gallery_men.jpg" alt="Men's affordable clothing rack">
         <figcaption>Men’s<br><small>XS–5XL</small></figcaption>
@@ -289,20 +264,17 @@
   </footer>
 
   <script>
-    // Sticky utility bar
     const util = document.querySelector('.util');
     const heroH = document.querySelector('.hero').offsetHeight;
     window.addEventListener('scroll', () => {
       util.classList.toggle('show-util', scrollY > heroH - 80);
     });
 
-    // Fade-in on scroll
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => e.isIntersecting && e.target.classList.add('show'));
     }, { threshold: .15 });
     document.querySelectorAll('.fade').forEach(el => io.observe(el));
 
-    // Gallery filter chips
     document.querySelectorAll('.chip').forEach(chip => {
       chip.addEventListener('click', () => {
         document.querySelector('.chip.active').classList.remove('active');
@@ -314,7 +286,6 @@
       });
     });
 
-    // Lightweight lightbox
     const lb = document.createElement('dialog');
     lb.innerHTML = '<button aria-label="Close">×</button><img alt="">';
     lb.firstElementChild.style = `
@@ -331,14 +302,12 @@
     });
     lb.querySelector('button').onclick = () => lb.close();
 
-    // A2HS prompt after 30s
     setTimeout(() => {
       if ('BeforeInstallPromptEvent' in window) {
         window.addEventListener('beforeinstallprompt', e => e.prompt());
       }
     }, 30000);
 
-    // Register service worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js');
     }
