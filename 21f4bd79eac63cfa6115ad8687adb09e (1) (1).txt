@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- SEO / Social -->
+  <title>Kenny’s Kloset – $1 Clothing Ministry | Wellsburg WV</title>
+  <meta name="description" content="Everything $1. Kenny’s Kloset offers dignity‑preserving clothing for everyone, the 1st & 3rd Saturday at The Foundery Church in Wellsburg, WV.">
+  <link rel="canonical" href="https://kennyskloset.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:url"   content="https://kennyskloset.org/">
+  <meta property="og:title" content="Kenny’s Kloset – $1 Clothing Ministry">
+  <meta property="og:description" content="Affordable $1 clothing for all — Kenny’s Kloset at The Foundery Church, Wellsburg WV.">
+  <meta property="og:image" content="https://kennyskloset.org/images/og_cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Kenny’s Kloset",
+    "url":"https://kennyskloset.org",
+    "priceRange":"$",
+    "address":{"@type":"PostalAddress","streetAddress":"1340 Washington Pike","addressLocality":"Wellsburg","addressRegion":"WV"},
+    "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"08:00","closes":"12:00"}]
+  }
+  </script>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --red: #D7261E;
+      --cream: #FFFDF7;
+      --charcoal: #222;
+      --neutral: #F7F4F0;
+      --ease: cubic-bezier(.25,1,.5,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font: 400 1rem/1.6 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      scroll-behavior: smooth;
+    }
+    h1, h2 { font-family: 'Quicksand', sans-serif; font-weight: 600; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* Hero – static image background */
+    .hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      background: url('/images/hero_group.jpg') center/cover no-repeat;
+    }
+    .hero h1 {
+      font-size: clamp(2.7rem, 6vw, 3.7rem);
+      letter-spacing: .03em;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      margin-top: .75rem;
+    }
+
+    /* Utility bar */
+    .util {
+      position: fixed; top: -64px; left: 0; right: 0;
+      z-index: 999; background: var(--red); color: #fff;
+      display: flex; gap: .5rem; justify-content: center;
+      padding: .5rem; transition: top .4s var(--ease);
+    }
+    .util a {
+      background: #fff; color: var(--red);
+      padding: .45rem 1rem; border-radius: 40px;
+      font-weight: 600; font-size: .9rem;
+    }
+    .show-util { top: 0; }
+
+    /* Sections */
+    section {
+      padding: 2.25rem 1.25rem; max-width: 960px; margin: auto;
+    }
+    section h2 {
+      text-align: center; color: var(--red);
+      font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 1rem;
+    }
+
+    /* Gallery & chips */
+    .chips {
+      display: flex; flex-wrap: wrap; gap: .5rem;
+      justify-content: center; margin-bottom: 1rem;
+    }
+    .chip {
+      cursor: pointer; padding: .35rem .9rem;
+      border: 2px solid var(--red); border-radius: 30px;
+      font-size: .9rem; user-select: none;
+    }
+    .chip.active {
+      background: var(--red); color: #fff;
+    }
+    .gallery {
+      display: grid; gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+    }
+    .gallery figure {
+      background: #fff; border-radius: 8px;
+      overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,.08);
+    }
+    .gallery img {
+      aspect-ratio: 3/4; object-fit: cover; width: 100%;
+    }
+    .gallery figcaption {
+      padding: .5rem; text-align: center; font-weight: 600;
+    }
+
+    /* Help & dropoff */
+    .help-wrap {
+      overflow-x: auto; padding-bottom: 1rem;
+      -webkit-overflow-scrolling: touch;
+    }
+    .help-list {
+      display: flex; gap: 1rem; list-style: none;
+    }
+    .help-list li::marker { content: ''; }
+    .help-item {
+      flex: 0 0 300px; background: #fff;
+      border-left: 4px solid var(--red);
+      border-radius: 6px; padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,.06);
+    }
+    .dropoff {
+      text-align: center; font-size: 1rem;
+      margin-top: 1rem; line-height: 1.4;
+    }
+    .dropoff span {
+      display: inline-block; margin: 0 .25rem;
+    }
+
+    /* Founder centering */
+    #founder .founder-container {
+      text-align: center;
+    }
+    #founder .founder-container img {
+      display: block; margin: 0 auto 1rem;
+    }
+    .founder-quote {
+      background: var(--neutral);
+      border-left: 4px solid var(--red);
+      padding: 1.5rem; font-style: italic;
+      border-radius: 6px;
+    }
+
+    /* Fade-in */
+    .fade {
+      opacity: 0; transform: translateY(40px);
+      transition: all .6s var(--ease);
+    }
+    .fade.show { opacity: 1; transform: none; }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 3rem 1rem 4rem;
+      background: var(--red); color: #fff;
+      font-size: .95rem;
+    }
+    footer a {
+      color: #fff; text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="util" aria-label="Utility">
+    <a href="#gallery">$1 Items</a>
+    <a href="#help">Donate</a>
+    <a href="https://g.co/kgs/m9PNNPM" target="_blank" rel="noopener">📍 Directions</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1>Kenny’s Kloset</h1>
+      <p>Clothes &amp; Shoes — <strong>$1 per item</strong> • Cash Only • Everyone Welcome</p>
+    </div>
+  </header>
+
+  <section id="story" class="fade">
+    <h2>Why We’re Here</h2>
+    <p><strong>Rising costs shouldn’t steal anyone’s dignity.</strong> After hearing a challenge to “use the gifts God gave you,”
+      <em>Barbra &amp; Jay Beatty</em> turned their retail know‑how into a ministry. Kenny’s Kloset honors the legacy of
+      <strong>Kenneth “Kenny” Hart</strong>—beloved teacher, principal and coach—by offering affordable essentials to
+      every neighbor, no strings attached. All proceeds circle back into helping local families, so every dollar you spend
+      sparks another act of kindness.</p>
+  </section>
+
+  <section id="gallery" class="fade">
+    <h2>What You’ll Find</h2>
+    <div class="chips" role="tablist">
+      <span class="chip active" data-filter="all" role="tab" aria-selected="true">All</span>
+      <span class="chip" data-filter="men" role="tab">Men</span>
+      <span class="chip" data-filter="women" role="tab">Women</span>
+      <span class="chip" data-filter="kids" role="tab">Kids</span>
+      <span class="chip" data-filter="maternity" role="tab">Maternity</span>
+    </div>
+    <div class="gallery" aria-live="polite">
+      <figure data-cat="men">
+        <img src="images/gallery_men.jpg" alt="Men's affordable clothing rack">
+        <figcaption>Men’s<br><small>XS–5XL</small></figcaption>
+      </figure>
+      <figure data-cat="women">
+        <img src="images/gallery_women.jpg" alt="Women browsing dresses">
+        <figcaption>Women’s<br><small>XS–3XL</small></figcaption>
+      </figure>
+      <figure data-cat="kids">
+        <img src="images/gallery_kids.jpg" alt="Kids' clothing section">
+        <figcaption>Kids’<br><small>NB +</small></figcaption>
+      </figure>
+      <figure data-cat="maternity">
+        <img src="images/gallery_maternity.jpg" alt="Maternity wear available">
+        <figcaption>Maternity</figcaption>
+      </figure>
+    </div>
+    <p style="margin-top:1rem; text-align:center">
+      Need something special for a <strong>job interview</strong> or <strong>formal event</strong>? Our volunteers will help.
+    </p>
+  </section>
+
+  <section id="help" class="fade">
+    <h2>How You Can Help</h2>
+    <div class="help-wrap">
+      <ul class="help-list">
+        <li class="help-item"><strong>Donate Clothes &amp; Shoes</strong><br>
+            Clean, in‑season items for all ages and sizes (new socks &amp; underwear only).</li>
+        <li class="help-item"><strong>Volunteer Your Time</strong><br>
+            Sorting, greeting shoppers, or loading the Blessing Box outside.</li>
+        <li class="help-item"><strong>Spread the Word</strong><br>
+            Share our posts, invite a friend, or grab a flyer with the QR code below.</li>
+      </ul>
+    </div>
+    <p class="dropoff">
+      <strong>Donation Drop‑Off:</strong>
+      <span>1<sup>st</sup> &amp; 3<sup>rd</sup> Saturday</span>
+      <span>8 AM–12 PM</span>
+    </p>
+  </section>
+
+  <section id="founder" class="fade">
+    <h2>Meet the Founder</h2>
+    <div class="founder-container">
+      <img src="images/barb_beatty.jpg" alt="Barb Beatty – Founder of Kenny’s Kloset">
+      <p class="founder-quote">
+        “The Lord laid it on my heart that this was something I could do—a way to give back.”<br>
+        <strong>Barb Beatty, Founder</strong>
+      </p>
+      <iframe src="https://drive.google.com/file/d/1zGT9j02NFFBEw1ToUtKiGM4UVlrnwahP/preview"
+              width="100%" height="480" allow="autoplay" title="Kenny’s Kloset Jingle"
+              style="margin-top:1.5rem"></iframe>
+    </div>
+  </section>
+
+  <section id="our-church" class="fade">
+    <h2>About The Foundery Church</h2>
+    <p style="text-align:center; max-width:700px; margin:auto">
+      Kenny’s Kloset is a ministry of
+      <a href="https://thefoundery.church" target="_blank" rel="noopener">
+        <strong>The Foundery Church</strong>
+      </a>, where faith meets action in our community. Explore what we’re building together.
+    </p>
+  </section>
+
+  <footer>
+    <p><strong>Shop Hours:</strong> 1<sup>st</sup> &amp; 3<sup>rd</sup> Saturday · 8 AM–12 PM · Everything $1</p>
+    <p><strong>Find Us:</strong> The Foundery Church · 1340 Washington Pike · Wellsburg, WV</p>
+    <p><strong>Questions?</strong>
+      <a href="https://m.facebook.com/groups/3439218003044983/" target="_blank" rel="noopener">
+        Message us on Facebook
+      </a>
+    </p>
+  </footer>
+
+  <script>
+    // Sticky utility bar
+    const util = document.querySelector('.util');
+    const heroH = document.querySelector('.hero').offsetHeight;
+    window.addEventListener('scroll', () => {
+      util.classList.toggle('show-util', scrollY > heroH - 80);
+    });
+
+    // Fade-in on scroll
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => e.isIntersecting && e.target.classList.add('show'));
+    }, { threshold: .15 });
+    document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+    // Gallery filter chips
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelector('.chip.active').classList.remove('active');
+        chip.classList.add('active');
+        const filter = chip.dataset.filter;
+        document.querySelectorAll('.gallery figure').forEach(fig => {
+          fig.style.display = (filter === 'all' || fig.dataset.cat === filter) ? 'block' : 'none';
+        });
+      });
+    });
+
+    // Lightweight lightbox
+    const lb = document.createElement('dialog');
+    lb.innerHTML = '<button aria-label="Close">×</button><img alt="">';
+    lb.firstElementChild.style = `
+      position:absolute; top:1rem; right:1rem; font-size:2rem;
+      background:none; border:none; color:#fff; cursor:pointer;
+    `;
+    lb.style = 'border:none; padding:0; background:rgba(0,0,0,.88);';
+    document.body.append(lb);
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        lb.querySelector('img').src = img.currentSrc;
+        lb.showModal();
+      });
+    });
+    lb.querySelector('button').onclick = () => lb.close();
+
+    // A2HS prompt after 30s
+    setTimeout(() => {
+      if ('BeforeInstallPromptEvent' in window) {
+        window.addEventListener('beforeinstallprompt', e => e.prompt());
+      }
+    }, 30000);
+
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
+</body>
+</html>
