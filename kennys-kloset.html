@@ -4,18 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>Kenny’s Kloset – $1 Clothing Ministry | Wellsburg WV</title>
+  <title>Kenny’s Kloset – $1 Clothing Ministry | Wellsburg WV (Improved)</title>
   <meta name="description" content="Everything $1. Kenny’s Kloset offers dignity‑preserving clothing for everyone, the 1st & 3rd Saturday at The Foundery Church in Wellsburg, WV.">
   <link rel="canonical" href="https://kennyskloset.org/">
   <meta property="og:type" content="website">
   <meta property="og:url"   content="https://kennyskloset.org/">
   <meta property="og:title" content="Kenny’s Kloset – $1 Clothing Ministry">
   <meta property="og:description" content="Affordable $1 clothing for all — Kenny’s Kloset at The Foundery Church, Wellsburg WV.">
-  <meta property="og:image" content="https://kennyskloset.org/images/og_cover.jpg">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://kennyskloset.org/images/og_cover.jpg"> <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="manifest" href="/manifest.json">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="manifest" href="/manifest.json"> <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -24,6 +22,8 @@
       --charcoal: #222;
       --neutral: #F7F4F0;
       --ease: cubic-bezier(.25,1,.5,1);
+      --soft-shadow: 0 4px 12px rgba(0,0,0,.08);
+      --strong-shadow: 0 8px 20px rgba(0,0,0,.12);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -31,132 +31,331 @@
       background: var(--cream);
       color: var(--charcoal);
       scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased; /* बेहतर फ़ॉन्ट रेंडरिंग */
+      -moz-osx-font-smoothing: grayscale; /* बेहतर फ़ॉन्ट रेंडरिंग */
     }
     h1, h2 { font-family: 'Quicksand', sans-serif; font-weight: 600; }
-    a { color: inherit; text-decoration: none; }
+    a { color: inherit; text-decoration: none; transition: color 0.2s ease; }
     img { max-width: 100%; display: block; }
 
-.hero {
-  position: relative;
-  min-height: 70vh;
-  display: flex;
-  align-items: flex-end; /* Keep it at flex-end */
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  background: url('/images/hero_group.jpg') center/cover no-repeat;
-  padding-bottom: 4rem; /* Increased from 3rem to 10rem to move it higher from bottom */
-}
+    .hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      /* सुधार: सुनिश्चित करें कि hero_group.jpg निर्दिष्ट पथ में मौजूद है या इसे अपडेट करें */
+      background: url('/images/hero_group.jpg') center/cover no-repeat;
+      padding: 0 1rem 4rem; /* हॉरिजॉन्टल पैडिंग जोड़ी गई */
+    }
+    .hero div { /* कंटेंट के लिए रैपर */
+        background: rgba(0,0,0,0.2); /* टेक्स्ट के पीछे हल्का सा ओवरले ताकि पठनीयता बेहतर हो */
+        padding: 1.5rem;
+        border-radius: 8px;
+        max-width: 90%;
+    }
     .hero h1, .hero p {
-      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.7); /* थोड़ा और बेहतर शैडो */
     }
     .hero h1 {
-      font-size: clamp(2.7rem, 6vw, 3.7rem);
+      font-size: clamp(2.5rem, 6vw, 3.7rem);
       letter-spacing: .03em;
+      margin-bottom: 0.5rem;
     }
     .hero p {
-      font-size: 1.15rem;
+      font-size: clamp(1rem, 2.5vw, 1.15rem); /* P को भी रिस्पॉन्सिव बनाया */
       margin-top: .75rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .util {
-      position: fixed; top: -64px; left: 0; right: 0;
+      position: fixed; top: -100px; /* सुनिश्चित करें कि यह शुरू में छिपा हुआ है */
+      left: 0; right: 0;
       z-index: 999; background: var(--red); color: #fff;
       display: flex; gap: .5rem; justify-content: center;
-      padding: .5rem; transition: top .4s var(--ease);
+      align-items: center; /* आइटम को वर्टिकली अलाइन करें */
+      padding: .75rem .5rem;
+      transition: top .4s var(--ease);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
     .util a {
       background: #fff; color: var(--red);
-      padding: .45rem 1rem; border-radius: 40px;
+      padding: .5rem 1.1rem; border-radius: 40px;
       font-weight: 600; font-size: .9rem;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background-color 0.2s ease, color 0.2s ease;
+    }
+    .util a:hover, .util a:focus { /* सुधार: :focus जोड़ा गया */
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(34,34,34,0.2);
+      outline: 2px solid var(--red); /* फोकस के लिए आउटलाइन */
+      outline-offset: 2px;
     }
     .show-util { top: 0; }
 
     section {
-      padding: 2.25rem 1.25rem; max-width: 960px; margin: auto;
+      padding: 3.5rem 1.25rem; /* टॉप/बॉटम पैडिंग थोड़ी और बढ़ाई */
+      max-width: 960px; margin: auto;
     }
     section h2 {
       text-align: center; color: var(--red);
-      font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 1rem;
+      font-size: clamp(1.8rem, 4.5vw, 2.4rem); /* हेडिंग्स थोड़ी और बड़ी */
+      margin-bottom: 2rem; /* मार्जिन बढ़ाई */
     }
 
     .chips {
-      display: flex; flex-wrap: wrap; gap: .5rem;
-      justify-content: center; margin-bottom: 1rem;
+      display: flex; flex-wrap: wrap; gap: .75rem;
+      justify-content: center; margin-bottom: 2rem;
     }
+    /* सुधार: चिप्स अब एक्सेसिबिलिटी के लिए बटन हैं */
     .chip {
-      cursor: pointer; padding: .35rem .9rem;
+      cursor: pointer; padding: .6rem 1.2rem; /* चिप्स थोड़े और बड़े */
       border: 2px solid var(--red); border-radius: 30px;
-      font-size: .9rem; user-select: none;
+      font-size: .95rem; user-select: none;
+      font-family: 'Inter', sans-serif; font-weight: 500;
+      background-color: transparent;
+      color: var(--red);
+      transition: all 0.2s var(--ease);
+    }
+    .chip:hover, .chip:focus { /* सुधार: :focus जोड़ा गया */
+      background: rgba(215, 38, 30, 0.08);
+      outline: none; /* बॉर्डर ही फोकस इंडिकेटर का काम करेगा */
+      box-shadow: 0 0 0 2px var(--red); /* वैकल्पिक फोकस स्टाइल */
     }
     .chip.active {
       background: var(--red); color: #fff;
+      font-weight: 600;
     }
+    .chip.active:hover, .chip.active:focus {
+      background: #b01710; /* एक्टिव पर होवर के लिए गहरा लाल */
+      box-shadow: none; /* एक्टिव पर अलग फोकस स्टाइल की जरूरत नहीं */
+    }
+
+
     .gallery {
-      display: grid; gap: 10px;
-      grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+      display: grid; gap: 1.25rem; /* गैप बढ़ाया */
+      grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); /* आइटम्स के लिए थोड़ा और बड़ा मिन */
     }
     .gallery figure {
-      background: #fff; border-radius: 8px;
-      overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,.08);
+      background: #fff; border-radius: 12px; /* बॉर्डर रेडियस बढ़ाया */
+      overflow: hidden; box-shadow: var(--soft-shadow);
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+      cursor: pointer; /* इंगित करता है कि पूरा फिगर क्लिक करने योग्य है */
+    }
+    .gallery figure:hover, .gallery figure:focus-within { /* सुधार: :focus-within जोड़ा गया */
+      transform: translateY(-6px) scale(1.03); /* सुधार: आकर्षक होवर इफ़ेक्ट */
+      box-shadow: var(--strong-shadow);
     }
     .gallery img {
       aspect-ratio: 3/4; object-fit: cover; width: 100%;
     }
     .gallery figcaption {
-      padding: .5rem; text-align: center; font-weight: 600;
+      padding: 1rem .75rem; /* पैडिंग एडजस्ट की */
+      text-align: center; font-weight: 600;
+      font-size: 1rem;
+      color: var(--charcoal);
+    }
+    .gallery figcaption small {
+      display: block; /* नई लाइन पर लाने के लिए */
+      font-size: 0.85rem;
+      color: #555;
+      margin-top: 0.25rem;
     }
 
     .help-wrap {
       overflow-x: auto; padding-bottom: 1rem;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin; /* पतली स्क्रॉलबार */
+      scrollbar-color: var(--red) var(--neutral); /* स्क्रॉलबार कलर */
     }
     .help-list {
-      display: flex; gap: 1rem; list-style: none;
+      display: flex; gap: 1.5rem; /* गैप बढ़ाया */
+      list-style: none;
+      min-width: max-content;
     }
     .help-item {
-      flex: 0 0 300px; background: #fff;
-      border-left: 4px solid var(--red);
-      border-radius: 6px; padding: 1rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,.06);
+      flex: 0 0 320px; background: #fff; /* चौड़ाई थोड़ी बढ़ाई */
+      border-left: 6px solid var(--red); /* मोटा बॉर्डर */
+      border-radius: 10px; padding: 1.5rem; /* पैडिंग बढ़ाई */
+      box-shadow: var(--soft-shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .help-item:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--strong-shadow);
+    }
+    .help-item strong {
+      display: block;
+      margin-bottom: 0.6rem;
+      font-size: 1.15rem;
+      color: var(--charcoal);
     }
     .dropoff {
-      text-align: center; font-size: 1rem;
-      margin-top: 1rem; line-height: 1.4;
+      text-align: center; font-size: 1.05rem;
+      margin-top: 2rem; line-height: 1.6;
     }
+    .dropoff strong {
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .dropoff span {
+      margin: 0 0.5rem;
+      display: inline-block;
+    }
+
 
     #founder .founder-container {
       text-align: center;
     }
     #founder .founder-container img {
-      display: block; margin: 0 auto 1rem;
+      display: block; margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      width: 160px; /* थोड़ा बड़ा */
+      height: 160px;
+      object-fit: cover;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.18); /* शैडो और बेहतर किया */
     }
     .founder-quote {
       background: var(--neutral);
-      border-left: 4px solid var(--red);
-      padding: 1.5rem; font-style: italic;
-      border-radius: 6px;
+      border-left: 6px solid var(--red);
+      padding: 2rem; font-style: italic; /* पैडिंग बढ़ाई */
+      border-radius: 10px;
+      max-width: 700px; /* चौड़ाई बढ़ाई */
+      margin: 1rem auto;
+      font-size: 1.1rem; /* थोड़ा और बड़ा क्वोट टेक्स्ट */
+      box-shadow: var(--soft-shadow);
+    }
+    .founder-quote strong {
+      display: block;
+      margin-top: 1.25rem;
+      font-style: normal;
+      font-weight: 600;
+    }
+    #founder iframe {
+        border-radius: 12px;
+        border: none;
+        box-shadow: var(--strong-shadow);
+    }
+
+    /* सुधार: डायलॉग लाइटबॉक्स के लिए स्टाइल्स (JS इनलाइन स्टाइल्स से हटाए गए) */
+    dialog.image-lightbox {
+      border: none;
+      padding: 0;
+      background: transparent; /* बैकड्रॉप कलर मैनेज करेगा */
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      overflow: visible; /* शैडो को कटने से बचाने के लिए */
+    }
+    dialog.image-lightbox::backdrop {
+      background: rgba(30,30,30,.85);
+      backdrop-filter: blur(5px); /* वैकल्पिक: फ्रॉस्टेड ग्लास इफ़ेक्ट */
+    }
+    dialog.image-lightbox .lightbox-content { /* इमेज और बटन के लिए रैपर */
+        position: relative;
+        background-color: var(--charcoal); /* डार्क बैकग्राउंड */
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        padding: 0.5rem; /* इमेज के चारों ओर हल्की सी पैडिंग */
+    }
+    dialog.image-lightbox img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: calc(90vw - 2rem - 2 * 0.5rem); /* डायलॉग पैडिंग और कंटेंट पैडिंग को ध्यान में रखते हुए */
+      max-height: calc(90vh - 2rem - 2 * 0.5rem);
+      object-fit: contain;
+      border-radius: 8px; /* इमेज के कोनों को थोड़ा गोल किया */
+    }
+    dialog.image-lightbox .close-button {
+      position: absolute;
+      top: -15px; /* रैपर के बाहर थोड़ा सा */
+      right: -15px; /* रैपर के बाहर थोड़ा सा */
+      font-size: 1.5rem; /* थोड़ा छोटा */
+      line-height: 1;
+      background: white;
+      border: 2px solid white;
+      color: var(--red);
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      font-weight: bold;
+    }
+    dialog.image-lightbox .close-button:hover,
+    dialog.image-lightbox .close-button:focus {
+      background: var(--red);
+      color: white;
+      transform: scale(1.1);
+      outline: none;
     }
 
     .fade {
-      opacity: 0; transform: translateY(40px);
-      transition: all .6s var(--ease);
+      opacity: 0; transform: translateY(25px); /* थोड़ी कम Y ट्रांसफॉर्म */
+      transition: opacity .7s var(--ease), transform .7s var(--ease);
     }
     .fade.show { opacity: 1; transform: none; }
 
     footer {
-      text-align: center; padding: 3rem 1rem 4rem;
-      background: var(--red); color: #fff;
-      font-size: .95rem;
+      text-align: center; padding: 3.5rem 1rem 4.5rem;
+      background: var(--red); color: rgba(255,255,255,0.95); /* थोड़ा और बेहतर व्हाइट टेक्स्ट */
+      font-size: 1rem; /* थोड़ा बड़ा */
+    }
+    footer p {
+      margin-bottom: 1rem;
+    }
+    footer p:last-child {
+      margin-bottom: 0;
     }
     footer a {
-      color: #fff; text-decoration: underline;
+      color: #fff;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      font-weight: 500; /* थोड़ा कम बोल्ड */
+      transition: text-decoration-thickness 0.2s ease, color 0.2s ease;
     }
+    footer a:hover, footer a:focus {
+      text-decoration-thickness: 2px;
+      color: #ffdddd; /* होवर पर हल्का पिंक */
+      outline: 1px dashed #ffdddd; /* फोकस के लिए */
+      outline-offset: 2px;
+    }
+
+    /* PWA इंस्टॉल बटन के लिए वैकल्पिक स्टाइल */
+    #installAppButton {
+      display: none; /* डिफ़ॉल्ट रूप से छिपा हुआ */
+      margin: 1.5rem auto;
+      padding: 0.8rem 1.6rem;
+      background-color: var(--cream);
+      color: var(--red);
+      border: 2px solid var(--red);
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    #installAppButton:hover, #installAppButton:focus {
+        background-color: var(--red);
+        color: var(--cream);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transform: translateY(-2px);
+        outline: none;
+    }
+
   </style>
 </head>
 <body>
 
-  <nav class="util" aria-label="Utility">
+  <nav class="util" aria-label="Utility Navigation">
     <a href="#gallery">$1 Per Item</a>
     <a href="#help">Donate</a>
     <a href="https://g.co/kgs/m9PNNPM" target="_blank" rel="noopener">📍 Directions</a>
@@ -169,89 +368,91 @@
     </div>
   </header>
 
-  <section id="story" class="fade">
-    <h2>Why We’re Here</h2>
-    <p><strong>Rising costs shouldn’t steal anyone’s dignity.</strong> After hearing a challenge to “use the gifts God gave you,”
-      <em>Barbra &amp; Jay Beatty</em> turned their retail know‑how into a ministry. Kenny’s Kloset honors the legacy of
-      <strong>Kenneth “Kenny” Hart</strong>—beloved teacher, principal and coach—by offering affordable essentials to
-      every neighbor, no strings attached. All proceeds circle back into helping local families, so every dollar you spend
-      sparks another act of kindness.</p>
-  </section>
+  <main>
+    <section id="story" class="fade">
+      <h2>Why We’re Here</h2>
+      <p><strong>Rising costs shouldn’t steal anyone’s dignity.</strong> After hearing a challenge to “use the gifts God gave you,”
+        <em>Barbra &amp; Jay Beatty</em> turned their retail know‑how into a ministry. Kenny’s Kloset honors the legacy of
+        <strong>Kenneth “Kenny” Hart</strong>—beloved teacher, principal and coach—by offering affordable essentials to
+        every neighbor, no strings attached. All proceeds circle back into helping local families, so every dollar you spend
+        sparks another act of kindness.</p>
+    </section>
 
-  <section id="gallery" class="fade">
-    <h2>What You’ll Find</h2>
-    <div class="chips">
-      <span class="chip active" data-filter="all">All</span>
-      <span class="chip" data-filter="men">Men</span>
-      <span class="chip" data-filter="women">Women</span>
-      <span class="chip" data-filter="kids">Kids</span>
-      <span class="chip" data-filter="maternity">Maternity</span>
-    </div>
-    <div class="gallery">
-      <figure data-cat="men">
-        <img src="images/gallery_men.PNG" alt="Men's affordable clothing rack">
-        <figcaption>Men’s<br><small>XS–5XL</small></figcaption>
-      </figure>
-      <figure data-cat="women">
-        <img src="images/gallery_women.jpg" alt="Women browsing dresses">
-        <figcaption>Women’s<br><small>XS–3XL</small></figcaption>
-      </figure>
-      <figure data-cat="kids">
-        <img src="images/gallery_kids.jpg" alt="Kids' clothing section">
-        <figcaption>Kids’<br><small>NB +</small></figcaption>
-      </figure>
-      <figure data-cat="maternity">
-        <img src="images/gallery_maternity.jpg" alt="Maternity wear available">
-        <figcaption>Maternity</figcaption>
-      </figure>
-    </div>
-    <p style="margin-top:1rem; text-align:center">
-      Need something special for a <strong>job interview</strong> or <strong>formal event</strong>? Our volunteers will help.
-    </p>
-  </section>
-
-  <section id="help" class="fade">
-    <h2>How You Can Help</h2>
-    <div class="help-wrap">
-      <ul class="help-list">
-        <li class="help-item"><strong>Donate Clothes &amp; Shoes</strong><br>
-            Clean, in‑season items for all ages and sizes (new socks &amp; underwear only).</li>
-        <li class="help-item"><strong>Volunteer Your Time</strong><br>
-            Sorting, greeting shoppers, or loading the Blessing Box outside.</li>
-        <li class="help-item"><strong>Spread the Word</strong><br>
-            Share our posts, invite a friend, or grab a flyer with the QR code below.</li>
-      </ul>
-    </div>
-    <p class="dropoff">
-      <strong>Donation Drop‑Off:</strong>
-      <span>1<sup>st</sup> &amp; 3<sup>rd</sup> Saturday</span>
-      <span>8 AM–12 PM</span>
-    </p>
-  </section>
-
-  <section id="founder" class="fade">
-    <h2>Meet the Founder</h2>
-    <div class="founder-container">
-      <img src="images/barb_beatty.jpg" alt="Barb Beatty – Founder of Kenny’s Kloset">
-      <p class="founder-quote">
-        “The Lord laid it on my heart that this was something I could do—a way to give back.”<br>
-        <strong>Barb Beatty, Founder</strong>
+    <section id="gallery" class="fade">
+      <h2>What You’ll Find</h2>
+      <div class="chips" role="toolbar" aria-label="Filter gallery items">
+        <button class="chip active" data-filter="all" type="button">All</button>
+        <button class="chip" data-filter="men" type="button">Men</button>
+        <button class="chip" data-filter="women" type="button">Women</button>
+        <button class="chip" data-filter="kids" type="button">Kids</button>
+        <button class="chip" data-filter="maternity" type="button">Maternity</button>
+      </div>
+      <div class="gallery">
+        <figure data-cat="men" tabindex="0"> <img src="images/gallery_men.PNG" alt="Men's affordable clothing rack" loading="lazy">
+          <figcaption>Men’s<small>XS–5XL</small></figcaption>
+        </figure>
+        <figure data-cat="women" tabindex="0">
+          <img src="images/gallery_women.jpg" alt="Women Browse dresses" loading="lazy">
+          <figcaption>Women’s<small>XS–3XL</small></figcaption>
+        </figure>
+        <figure data-cat="kids" tabindex="0">
+          <img src="images/gallery_kids.jpg" alt="Kids' clothing section" loading="lazy">
+          <figcaption>Kids’<small>NB +</small></figcaption>
+        </figure>
+        <figure data-cat="maternity" tabindex="0">
+          <img src="images/gallery_maternity.jpg" alt="Maternity wear available" loading="lazy">
+          <figcaption>Maternity</figcaption>
+        </figure>
+      </div>
+      <p style="margin-top:2rem; text-align:center; font-size: 1.1rem; color: var(--charcoal);">
+        Need something special for a <strong>job interview</strong> or <strong>formal event</strong>? Our volunteers will help.
       </p>
-      <iframe src="https://drive.google.com/file/d/1zGT9j02NFFBEw1ToUtKiGM4UVlrnwahP/preview"
-              width="100%" height="480" allow="autoplay" title="Kenny’s Kloset Jingle"
-              style="margin-top:1.5rem"></iframe>
-    </div>
-  </section>
+    </section>
 
-  <section id="our-church" class="fade">
-    <h2>About The Foundery Church</h2>
-    <p style="text-align:center; max-width:700px; margin:auto">
-      Kenny’s Kloset is a ministry of
-      <a href="https://thefoundery.church" target="_blank" rel="noopener">
-        <strong>The Foundery Church</strong>
-      </a>, where faith meets action in our community. Explore what we’re building together.
-    </p>
-  </section>
+    <section id="help" class="fade">
+      <h2>How You Can Help</h2>
+      <div class="help-wrap">
+        <ul class="help-list">
+          <li class="help-item"><strong>Donate Clothes &amp; Shoes</strong><br>
+              Clean, in‑season items for all ages and sizes (new socks &amp; underwear only).</li>
+          <li class="help-item"><strong>Volunteer Your Time</strong><br>
+              Sorting, greeting shoppers, or loading the Blessing Box outside.</li>
+          <li class="help-item"><strong>Spread the Word</strong><br>
+              Share our posts, invite a friend, or grab a flyer with the QR code below.</li>
+        </ul>
+      </div>
+      <p class="dropoff">
+        <strong>Donation Drop‑Off:</strong>
+        <span>1<sup>st</sup> &amp; 3<sup>rd</sup> Saturday</span>
+        <span>8 AM–12 PM</span>
+      </p>
+    </section>
+
+    <section id="founder" class="fade">
+      <h2>Meet the Founder</h2>
+      <div class="founder-container">
+        <img src="images/barb_beatty.jpg" alt="Barb Beatty – Founder of Kenny’s Kloset" loading="lazy">
+        <p class="founder-quote">
+          “The Lord laid it on my heart that this was something I could do—a way to give back.”<br>
+          <strong>Barb Beatty, Founder</strong>
+        </p>
+        <iframe src="https://drive.google.com/file/d/1zGT9j02NFFBEw1ToUtKiGM4UVlrnwahP/preview"
+                width="100%" height="480" allow="autoplay" title="Kenny’s Kloset Jingle by local artist"
+                style="margin-top:2.5rem;" loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <section id="our-church" class="fade">
+      <h2>About The Foundery Church</h2>
+      <p style="text-align:center; max-width:700px; margin:auto auto 1.5rem; font-size: 1.1rem; color: var(--charcoal);">
+        Kenny’s Kloset is a ministry of
+        <a href="https://thefoundery.church" target="_blank" rel="noopener">
+          <strong>The Foundery Church</strong>
+        </a>, where faith meets action in our community. Explore what we’re building together.
+      </p>
+      <button id="installAppButton" aria-label="Install Kenny's Kloset App">Install App</button>
+    </section>
+  </main>
 
   <footer>
     <p><strong>Shop Hours:</strong> 1<sup>st</sup> &amp; 3<sup>rd</sup> Saturday · 8 AM–12 PM · Everything $1</p>
@@ -264,52 +465,173 @@
   </footer>
 
   <script>
-    const util = document.querySelector('.util');
-    const heroH = document.querySelector('.hero').offsetHeight;
-    window.addEventListener('scroll', () => {
-      util.classList.toggle('show-util', scrollY > heroH - 80);
-    });
+    // Utility Nav show/hide
+    const utilNav = document.querySelector('.util');
+    if (utilNav) {
+      const heroSection = document.querySelector('.hero');
+      const heroHeight = heroSection ? heroSection.offsetHeight : 300;
+      let isNavVisible = false; // ट्रैक करें कि नैव वर्तमान में दिख रहा है या नहीं
+      const handleScroll = () => {
+        const shouldBeVisible = window.scrollY > heroHeight - 80;
+        if (shouldBeVisible !== isNavVisible) {
+          utilNav.classList.toggle('show-util', shouldBeVisible);
+          isNavVisible = shouldBeVisible;
+        }
+      };
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      // आरंभिक जांच अगर पेज लोड होने पर पहले से स्क्रॉल हो
+      handleScroll();
+    }
 
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => e.isIntersecting && e.target.classList.add('show'));
-    }, { threshold: .15 });
-    document.querySelectorAll('.fade').forEach(el => io.observe(el));
+    // Intersection Observer for fade-in animations
+    const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" }; // थोड़ा जल्दी ट्रिगर करें
+    const fadeInObserver = new IntersectionObserver((entries, observerInstance) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observerInstance.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.fade').forEach(el => fadeInObserver.observe(el));
 
-    document.querySelectorAll('.chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        document.querySelector('.chip.active').classList.remove('active');
-        chip.classList.add('active');
-        const filter = chip.dataset.filter;
-        document.querySelectorAll('.gallery figure').forEach(fig => {
-          fig.style.display = (filter === 'all' || fig.dataset.cat === filter) ? 'block' : 'none';
-        });
+    // Gallery Chip Filtering
+    const chipContainer = document.querySelector('.chips');
+    if (chipContainer) {
+      const galleryFigures = document.querySelectorAll('.gallery figure');
+      chipContainer.addEventListener('click', (e) => {
+        const clickedChip = e.target.closest('.chip'); // सुनिश्चित करें कि हम बटन या उसके अंदर के टेक्स्ट पर क्लिक को हैंडल करते हैं
+        if (clickedChip && !clickedChip.classList.contains('active')) { // अगर एक्टिव नहीं है तभी प्रोसेस करें
+          const currentActive = chipContainer.querySelector('.chip.active');
+          if (currentActive) currentActive.classList.remove('active');
+          clickedChip.classList.add('active');
+          const filter = clickedChip.dataset.filter;
+          galleryFigures.forEach(fig => {
+            const isVisible = (filter === 'all' || fig.dataset.cat === filter);
+            fig.style.display = isVisible ? '' : 'none';
+            // सुधार: कीबोर्ड एक्सेसिबिलिटी के लिए फ़िल्टर किए गए आइटम्स को ẩn करें
+            fig.setAttribute('aria-hidden', !isVisible);
+            fig.setAttribute('tabindex', isVisible ? '0' : '-1');
+          });
+        }
+      });
+    }
+
+    // Lightbox Functionality
+    const lightboxDialog = document.createElement('dialog');
+    lightboxDialog.classList.add('image-lightbox');
+    // सुधार: कंटेंट रैपर जोड़ा गया ताकि क्लोज बटन बेहतर तरीके से पोजिशन हो सके
+    lightboxDialog.innerHTML = `
+      <div class="lightbox-content">
+        <button class="close-button" aria-label="Close Image Popup" title="Close (Esc)">×</button>
+        <img alt="Enlarged gallery image">
+      </div>`;
+    document.body.append(lightboxDialog);
+
+    const lightboxContent = lightboxDialog.querySelector('.lightbox-content');
+    const closeButton = lightboxDialog.querySelector('.close-button');
+    const lightboxImage = lightboxDialog.querySelector('img');
+    let previouslyFocusedElement = null; // लाइटबॉक्स बंद होने पर फोकस लौटाने के लिए
+
+    const openLightbox = (imgElement) => {
+        previouslyFocusedElement = document.activeElement; // वर्तमान में फोकस किया गया एलिमेंट सेव करें
+        lightboxImage.src = imgElement.currentSrc || imgElement.src;
+        lightboxImage.alt = imgElement.alt || 'Enlarged gallery image';
+        if (lightboxDialog.showModal) {
+            lightboxDialog.showModal();
+            // सुधार: फोकस को क्लोज बटन पर ले जाएं जब लाइटबॉक्स खुले
+            closeButton.focus();
+        } else {
+            lightboxDialog.style.display = 'block'; // बहुत पुराने ब्राउज़र के लिए फ़ॉलबैक
+        }
+    };
+
+    document.querySelectorAll('.gallery figure').forEach(figure => {
+      const img = figure.querySelector('img');
+      figure.addEventListener('click', () => openLightbox(img));
+      figure.addEventListener('keydown', (event) => { // सुधार: Enter/Space से लाइटबॉक्स खोलें
+          if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              openLightbox(img);
+          }
       });
     });
 
-    const lb = document.createElement('dialog');
-    lb.innerHTML = '<button aria-label="Close">×</button><img alt="">';
-    lb.firstElementChild.style = `
-      position:absolute; top:1rem; right:1rem; font-size:2rem;
-      background:none; border:none; color:#fff; cursor:pointer;
-    `;
-    lb.style = 'border:none; padding:0; background:rgba(0,0,0,.88);';
-    document.body.append(lb);
-    document.querySelectorAll('.gallery img').forEach(img => {
-      img.addEventListener('click', () => {
-        lb.querySelector('img').src = img.currentSrc;
-        lb.showModal();
-      });
-    });
-    lb.querySelector('button').onclick = () => lb.close();
+    const closeLightbox = () => {
+        if (lightboxDialog.close) {
+            lightboxDialog.close();
+        } else {
+            lightboxDialog.style.display = 'none';
+        }
+        if (previouslyFocusedElement) { // सुधार: पहले फोकस किए गए एलिमेंट पर फोकस लौटाएं
+            previouslyFocusedElement.focus();
+        }
+    };
 
-    setTimeout(() => {
-      if ('BeforeInstallPromptEvent' in window) {
-        window.addEventListener('beforeinstallprompt', e => e.prompt());
+    closeButton.addEventListener('click', closeLightbox);
+    lightboxDialog.addEventListener('click', (event) => {
+      // सुधार: केवल तभी बंद करें जब लाइटबॉक्स के ::backdrop (या डायलॉग इटसेल्फ, कंटेंट नहीं) पर क्लिक हो
+      if (event.target === lightboxDialog) {
+        closeLightbox();
       }
-    }, 30000);
+    });
+    // सुधार: Escape key से लाइटबॉक्स बंद करें (डायलॉग इसे डिफ़ॉल्ट रूप से करता है, लेकिन अतिरिक्त सुनिश्चितता)
+    lightboxDialog.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeLightbox();
+        }
+    });
 
+    // PWA Install Prompt Handling
+    let deferredInstallPrompt = null;
+    const installButton = document.getElementById('installAppButton');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      if (installButton) {
+        installButton.style.display = 'inline-block'; // या 'block' जैसा आपका लेआउट हो
+        console.log("'beforeinstallprompt' event fired, install button shown.");
+      } else {
+        console.log("'beforeinstallprompt' event fired, but no #installAppButton found to display.");
+      }
+    });
+
+    if (installButton) {
+      installButton.addEventListener('click', async () => {
+        if (!deferredInstallPrompt) {
+          console.log("Install prompt not available or already used.");
+          // वैकल्पिक रूप से, उपयोगकर्ता को बताएं कि ऐप पहले से इंस्टॉल है या उपलब्ध नहीं है
+          installButton.textContent = 'App Installed or Unavailable';
+          installButton.disabled = true;
+          return;
+        }
+        deferredInstallPrompt.prompt();
+        const { outcome } = await deferredInstallPrompt.userChoice;
+        console.log(`User response to the install prompt: ${outcome}`);
+        if (outcome === 'accepted') {
+          console.log('User accepted the A2HS prompt');
+          installButton.textContent = 'App Installed!';
+          installButton.disabled = true;
+        } else {
+          console.log('User dismissed the A2HS prompt');
+        }
+        deferredInstallPrompt = null; // प्रॉम्प्ट का केवल एक बार उपयोग किया जा सकता है
+        // installButton.style.display = 'none'; // सफल इंस्टॉलेशन के बाद बटन छिपाएं या डिसेबल करें
+      });
+    }
+
+    // Service Worker Registration
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js');
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          })
+          .catch(error => {
+            console.log('ServiceWorker registration failed: ', error);
+          });
+      });
     }
   </script>
 </body>
